@@ -104,26 +104,26 @@ export function ExperienceTimeline({ className }: ExperienceTimelineProps) {
   return (
     <section ref={triggerRef} className={className}>
       {/* Heading */}
-      <h2 className="font-heading text-5xl md:text-6xl uppercase mb-12 leading-tight">
+      <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl uppercase mb-8 sm:mb-10 md:mb-12 leading-tight">
         Experience_Timeline
       </h2>
 
       {/* Timeline */}
       <div className="relative">
         {/* Vertical Line */}
-        <div className="absolute left-0 md:left-8 top-0 bottom-0 w-[4px] bg-foreground" />
+        <div className="absolute left-0 sm:left-4 md:left-8 top-0 bottom-0 w-[3px] sm:w-[4px] bg-foreground" />
 
         {/* Experience Cards */}
-        <div ref={timelineRef} className="space-y-12 pl-8 md:pl-24">
+        <div ref={timelineRef} className="space-y-8 sm:space-y-10 md:space-y-12 pl-6 sm:pl-12 md:pl-24">
           {EXPERIENCES.map((exp, idx) => (
             <div key={idx} className="relative">
               {/* Timeline Dot */}
-              <div className="absolute -left-8 md:-left-24 top-6 w-8 h-8 bg-primary border-[3px] border-foreground" />
+              <div className="absolute -left-6 sm:-left-12 md:-left-24 top-6 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-primary border-[3px] border-foreground" />
 
               {/* Card */}
               <div
                 className={cn(
-                  'border-[3px] border-foreground shadow-[6px_6px_0px_0px] shadow-foreground p-6 md:p-8',
+                  'border-[3px] border-foreground shadow-[6px_6px_0px_0px] shadow-foreground p-4 sm:p-6 md:p-8',
                   'transition-all duration-200',
                   'hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px] hover:shadow-foreground',
                   exp.current ? 'bg-primary/10' : 'bg-bg-elevated'
@@ -132,7 +132,7 @@ export function ExperienceTimeline({ className }: ExperienceTimelineProps) {
                 {/* Header */}
                 <div className="mb-4">
                   <div className="flex flex-wrap items-center gap-3 mb-2">
-                    <h3 className="font-heading text-2xl md:text-3xl uppercase font-bold">
+                    <h3 className="font-heading text-xl sm:text-2xl md:text-3xl uppercase font-bold">
                       {exp.company}
                     </h3>
                     {exp.current && (
@@ -141,12 +141,12 @@ export function ExperienceTimeline({ className }: ExperienceTimelineProps) {
                       </Badge>
                     )}
                   </div>
-                  <div className="text-xl font-bold text-foreground/90">{exp.role}</div>
-                  <div className="text-sm font-mono text-foreground/60 mt-1">{exp.duration}</div>
+                  <div className="text-lg sm:text-xl font-bold text-foreground/90">{exp.role}</div>
+                  <div className="text-xs sm:text-sm font-mono text-foreground/60 mt-1">{exp.duration}</div>
                 </div>
 
                 {/* Achievements */}
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
                   {exp.achievements.map((achievement, aidx) => (
                     <li key={aidx} className="flex items-start gap-3 text-foreground/90">
                       <span className="text-primary font-bold mt-1">&gt;</span>
@@ -156,7 +156,7 @@ export function ExperienceTimeline({ className }: ExperienceTimelineProps) {
                 </ul>
 
                 {/* Technologies */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {exp.technologies.map((tech, tidx) => (
                     <Badge key={tidx} variant="default" className="text-xs">
                       {tech}

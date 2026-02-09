@@ -14,9 +14,9 @@ export function Footer({ className }: FooterProps) {
   return (
     <footer
       className={cn(
-        'max-w-7xl mx-auto border-t-4 border-foreground pt-8 px-6 md:px-12 pb-6',
-        'flex flex-wrap justify-between items-center gap-4',
-        'font-bold text-xs uppercase',
+        'max-w-7xl mx-auto border-t-4 border-foreground pt-6 sm:pt-8 px-4 sm:px-6 md:px-12 pb-4 sm:pb-6',
+        'flex flex-wrap justify-between items-center gap-3 sm:gap-4',
+        'font-bold text-[10px] sm:text-xs uppercase',
         className
       )}
     >
@@ -26,7 +26,7 @@ export function Footer({ className }: FooterProps) {
       </div>
 
       {/* System Links */}
-      <div className="flex gap-4">
+      <div className="flex gap-3 sm:gap-4 text-[10px] sm:text-xs">
         <Link
           href="https://github.com/esteban-estrada"
           target="_blank"

@@ -48,30 +48,30 @@ export function Section({
   size = 'default',
 }: SectionProps) {
   const sizeStyles = {
-    sm: 'py-8 md:py-12',
-    default: 'py-12 md:py-16',
-    lg: 'py-16 md:py-24',
+    sm: 'py-6 sm:py-8 md:py-12',
+    default: 'py-8 sm:py-12 md:py-16',
+    lg: 'py-12 sm:py-16 md:py-24',
   };
 
   return (
     <section
       id={id}
       className={cn(
-        'max-w-7xl mx-auto px-6 md:px-12',
+        'max-w-7xl mx-auto px-4 sm:px-6 md:px-12',
         sizeStyles[size],
         className
       )}
     >
       {/* Section Header */}
       {(title || description) && (
-        <header className="mb-12">
+        <header className="mb-8 sm:mb-12">
           {title && (
-            <h1 className="font-heading text-5xl md:text-7xl leading-tight uppercase mb-4">
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl leading-tight uppercase mb-4">
               {title}
             </h1>
           )}
           {description && (
-            <p className="text-lg md:text-xl text-foreground/70 max-w-3xl">
+            <p className="text-base sm:text-lg md:text-xl text-foreground/70 max-w-3xl">
               {description}
             </p>
           )}

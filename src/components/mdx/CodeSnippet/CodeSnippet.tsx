@@ -33,9 +33,9 @@ export function CodeSnippet({
   };
 
   return (
-    <div className="my-6 border-[3px] border-foreground bg-[var(--color-terminal-bg)] shadow-[4px_4px_0px_0px] shadow-foreground">
+    <div className="my-4 sm:my-6 border-[3px] border-foreground bg-[var(--color-terminal-bg)] shadow-[4px_4px_0px_0px] shadow-foreground">
       {/* Header */}
-      <div className="flex items-center justify-between border-b-[3px] border-foreground bg-foreground/5 px-4 py-2">
+      <div className="flex items-center justify-between border-b-[3px] border-foreground bg-foreground/5 px-3 sm:px-4 py-1.5 sm:py-2">
         <div className="flex items-center gap-2">
           {/* Terminal Dots */}
           <div className="flex gap-1.5">
@@ -88,11 +88,13 @@ export function CodeSnippet({
           showLineNumbers={showLineNumbers}
           customStyle={{
             margin: 0,
-            padding: '1rem',
+            padding: '0.75rem',
             background: 'var(--color-terminal-bg)',
-            fontSize: '0.875rem',
+            fontSize: '0.75rem',
             lineHeight: '1.5',
           }}
+          // Responsive styles via CSS classes are better but for inline styles we use smaller defaults
+          wrapLongLines={true}
           lineNumberStyle={{
             minWidth: '2.5em',
             paddingRight: '1em',

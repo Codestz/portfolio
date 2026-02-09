@@ -25,14 +25,14 @@ export default async function HomePage() {
   const posts = postsResult.success ? Array.from(postsResult.data) : [];
 
   return (
-    <main className="max-w-7xl mx-auto px-6 md:px-12 pt-8">
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-6 sm:pt-8">
       {/* Hero Section - Code Garden Branding */}
       <CodeGardenHero />
 
       {/* Content Grid - Blog Focused (50% / 25% / 25%) */}
       <AnimatedContentGrid
         id="latest"
-        className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-24 md:items-stretch"
+        className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6 mb-16 sm:mb-20 md:mb-24 md:items-stretch"
       >
         {/* Latest Tutorials - 50% (2 of 4 columns) */}
         <div className="md:col-span-2 flex">

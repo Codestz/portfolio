@@ -157,12 +157,12 @@ export function Terminal({
           <div className="w-3 h-3 bg-[var(--color-terminal-yellow)] border border-black" />
           <div className="w-3 h-3 bg-[var(--color-terminal-cyan)] border border-black" />
         </div>
-        <div className="text-[10px] font-bold tracking-widest uppercase">{title}</div>
+        <div className="text-[8px] sm:text-[9px] md:text-[10px] font-bold tracking-widest uppercase">{title}</div>
         <div />
       </div>
 
       {/* Terminal Body */}
-      <div className="brutal-terminal h-[450px] p-6 text-sm md:text-base overflow-hidden relative bg-[var(--color-terminal-bg)] border-4 border-black shadow-[12px_12px_0px_0px] shadow-black">
+      <div className="brutal-terminal h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] p-4 sm:p-5 md:p-6 text-xs sm:text-sm md:text-base overflow-hidden relative bg-[var(--color-terminal-bg)] border-4 border-black shadow-[12px_12px_0px_0px] shadow-black">
         {/* Scan line effect */}
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/[0.03] to-transparent" />
 
@@ -180,7 +180,7 @@ export function Terminal({
           {showProgress && progress > 0 && (
             <div className="flex gap-2 items-center">
               <span className="text-white"> &gt; Progress:</span>
-              <div className="flex-grow bg-zinc-800 h-4 border border-zinc-700 overflow-hidden">
+              <div className="flex-grow bg-zinc-800 h-3 sm:h-4 border border-zinc-700 overflow-hidden">
                 <div
                   className="h-full bg-[var(--color-terminal-purple)] transition-all duration-500"
                   style={{ width: `${progress}%` }}
@@ -219,12 +219,12 @@ export function Terminal({
       {/* Terminal Footer */}
       <div className="mt-6 flex justify-between items-center">
         <div className="flex gap-4">
-          <div className="border-2 border-black bg-[var(--color-terminal-purple)] text-white px-3 py-1 text-xs font-bold uppercase">
+          <div className="border-2 border-black bg-[var(--color-terminal-purple)] text-white px-2 sm:px-3 py-1 text-[10px] sm:text-xs font-bold uppercase">
             Ready
           </div>
-          <div className="border-2 border-black bg-white text-black px-3 py-1 text-xs font-bold uppercase">UTF-8</div>
+          <div className="border-2 border-black bg-white text-black px-2 sm:px-3 py-1 text-[10px] sm:text-xs font-bold uppercase">UTF-8</div>
         </div>
-        <p className="text-[10px] text-[var(--color-terminal-gray)] uppercase font-bold">uptime: 12:45:02</p>
+        <p className="text-[8px] sm:text-[9px] md:text-[10px] text-[var(--color-terminal-gray)] uppercase font-bold">uptime: 12:45:02</p>
       </div>
     </div>
   );

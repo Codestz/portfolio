@@ -86,17 +86,17 @@ export function SkillsBreakdown({ className }: SkillsBreakdownProps) {
   return (
     <section ref={triggerRef} className={className}>
       {/* Heading */}
-      <h2 className="font-heading text-5xl md:text-6xl uppercase mb-12 leading-tight">
+      <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl uppercase mb-8 sm:mb-10 md:mb-12 leading-tight">
         Skills_&_Technologies
       </h2>
 
       {/* Skills Grid */}
-      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
         {SKILL_CATEGORIES.map((category, idx) => (
           <div
             key={idx}
             className={cn(
-              'border-[3px] border-foreground shadow-[6px_6px_0px_0px] shadow-foreground p-6',
+              'border-[3px] border-foreground shadow-[6px_6px_0px_0px] shadow-foreground p-4 sm:p-5 md:p-6',
               'transition-all duration-200',
               'hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px] hover:shadow-foreground',
               'bg-bg-elevated'

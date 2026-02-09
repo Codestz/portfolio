@@ -75,32 +75,32 @@ export default async function ExperimentPage({ params }: BlogPostPageProps) {
 
           {/* Article Header */}
           <article className="prose prose-lg dark:prose-invert max-w-none">
-            <header className="not-prose mb-8">
-              <div className="mb-4 flex flex-wrap items-center gap-2">
+            <header className="not-prose mb-6 sm:mb-8">
+              <div className="mb-3 sm:mb-4 flex flex-wrap items-center gap-2">
                 <Badge variant="secondary">{post.category}</Badge>
                 {post.featured && (
                   <Badge variant="primary">Featured</Badge>
                 )}
               </div>
 
-              <h1 className="mb-4 font-mono text-4xl font-bold uppercase leading-tight tracking-wider text-foreground md:text-5xl">
+              <h1 className="mb-3 sm:mb-4 font-mono text-3xl sm:text-4xl md:text-5xl font-bold uppercase leading-tight tracking-wider text-foreground">
                 {post.title}
               </h1>
 
-              <div className="flex flex-wrap items-center gap-4 text-sm text-foreground/60">
-                <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4" />
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm text-foreground/60">
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
                   <time dateTime={post.publishedAt}>
                     {formatDate(post.publishedAt)}
                   </time>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="h-4 w-4" />
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <Clock className="h-3 w-3 sm:h-4 sm:w-4" />
                   <span>{post.readTime}</span>
                 </div>
               </div>
 
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
                 {post.tags.map((tag) => (
                   <Badge key={tag} variant="default" pill>
                     {tag}

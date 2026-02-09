@@ -64,7 +64,7 @@ export function CodeGardenHero() {
   }, []);
 
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-24">
+    <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 mb-16 sm:mb-20 md:mb-24">
       <div className="lg:col-span-7">
         {/* Status Badge */}
         <div ref={badgeRef}>
@@ -74,12 +74,12 @@ export function CodeGardenHero() {
         </div>
 
         {/* Main Heading */}
-        <h1 ref={headingRef} className="font-heading text-6xl md:text-8xl leading-[0.9] mb-8 uppercase">
+        <h1 ref={headingRef} className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-8xl leading-[0.9] mb-6 sm:mb-8 uppercase">
           <HighlightText variant="secondary">Codestz</HighlightText> Code Garden
         </h1>
 
         {/* Mission Statement */}
-        <p ref={missionRef} className="text-xl md:text-2xl font-medium max-w-xl mb-10 leading-snug">
+        <p ref={missionRef} className="text-lg sm:text-xl md:text-2xl font-medium max-w-xl mb-8 sm:mb-10 leading-snug">
           <a href="/about" className="font-bold text-foreground transition-colors underline decoration-secondary decoration-2 underline-offset-4">
             Senior Software Engineer
           </a>{' '}
@@ -90,7 +90,7 @@ export function CodeGardenHero() {
         </p>
 
         {/* CTA Buttons */}
-        <div ref={buttonsRef} className="flex flex-wrap gap-6">
+        <div ref={buttonsRef} className="flex flex-wrap gap-4 sm:gap-6">
           <Button as="a" href="#latest" variant="secondary" size="lg">
             View_Experiments
           </Button>

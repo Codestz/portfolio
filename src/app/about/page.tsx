@@ -20,7 +20,7 @@ export const metadata = generatePageMetadata({
 
 export default function AboutPage() {
   return (
-    <main className="max-w-7xl mx-auto px-6 md:px-12 pt-8">
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-6 sm:pt-8">
       {/* Hero Introduction */}
       <HeroIntroduction className="mb-24" />
 

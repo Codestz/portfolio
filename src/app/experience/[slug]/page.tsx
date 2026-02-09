@@ -73,40 +73,40 @@ export default async function ExperienceDetailPage({ params }: ExperiencePagePro
 
           {/* Project Header */}
           <article className="prose prose-lg dark:prose-invert max-w-none">
-            <header className="not-prose mb-8">
+            <header className="not-prose mb-6 sm:mb-8">
               {/* Featured Badge */}
               {project.featured && (
-                <div className="mb-4">
+                <div className="mb-3 sm:mb-4">
                   <Badge variant="primary">Featured</Badge>
                 </div>
               )}
 
               {/* Title */}
-              <h1 className="mb-4 font-mono text-4xl font-bold uppercase leading-tight tracking-wider text-foreground md:text-5xl">
+              <h1 className="mb-3 sm:mb-4 font-mono text-3xl sm:text-4xl md:text-5xl font-bold uppercase leading-tight tracking-wider text-foreground">
                 {project.title}
               </h1>
 
               {/* Company & Role */}
-              <div className="mb-4 space-y-1">
-                <p className="text-xl font-semibold text-primary">
+              <div className="mb-3 sm:mb-4 space-y-1">
+                <p className="text-lg sm:text-xl font-semibold text-primary">
                   {project.company}
                 </p>
-                <p className="text-base text-foreground/70">
+                <p className="text-sm sm:text-base text-foreground/70">
                   {project.role} · {project.year}
                 </p>
               </div>
 
               {/* Description */}
-              <p className="mb-6 text-lg text-foreground/80">
+              <p className="mb-4 sm:mb-6 text-base sm:text-lg text-foreground/80">
                 {project.description}
               </p>
 
               {/* Technologies */}
-              <div className="mb-6">
-                <h3 className="mb-3 text-sm font-bold uppercase text-foreground/60">
+              <div className="mb-4 sm:mb-6">
+                <h3 className="mb-2 sm:mb-3 text-xs sm:text-sm font-bold uppercase text-foreground/60">
                   Technologies
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {project.technologies.map((tech) => (
                     <Badge key={tech} variant="primary" pill>
                       {tech}
@@ -117,7 +117,7 @@ export default async function ExperienceDetailPage({ params }: ExperiencePagePro
 
               {/* Links */}
               {(project.githubUrl || project.liveUrl) && (
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2 sm:gap-3">
                   {project.isPublic && project.githubUrl && (
                     <Button
                       as="a"
