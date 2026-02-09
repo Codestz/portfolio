@@ -125,7 +125,6 @@ portfolio/
 │   │   │   ├── SkillsBreakdown/      # Tech stack showcase
 │   │   │   └── BeyondCode/           # Personal interests
 │   │   ├── blog/                     # Blog-specific components
-│   │   │   ├── TableOfContents/      # Auto-generated TOC
 │   │   │   └── PostNavigation/       # Prev/next post links
 │   │   ├── layout/                   # Layout components
 │   │   │   ├── Header/               # Navigation header with animations

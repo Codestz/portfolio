@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Syne, Space_Mono } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from '@/components/providers';
 import { Header, Footer } from '@/components/layout';
 import { APP_CONFIG } from '@/lib/constants';
@@ -42,6 +43,7 @@ export default function RootLayout({
           <main className="min-h-[calc(100vh-200px)]">{children}</main>
           <Footer />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
