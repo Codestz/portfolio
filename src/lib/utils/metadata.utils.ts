@@ -18,7 +18,8 @@ export interface PageMetadataProps {
   tags?: readonly string[];
 }
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://estebanestrada.dev';
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://portfolio-mauve-one-4otbuasdyz.vercel.app';
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 /**
