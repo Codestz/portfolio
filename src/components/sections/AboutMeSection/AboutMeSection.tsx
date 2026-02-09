@@ -58,7 +58,7 @@ export function AboutMeSection({ className }: AboutMeSectionProps) {
 
   return (
     <section ref={triggerRef} className={className}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
         {/* Image */}
         <div ref={imageRef} className="order-2 md:order-1">
           <div className="relative border-[4px] border-foreground shadow-[8px_8px_0px_0px] shadow-foreground bg-bg-elevated overflow-hidden">
@@ -75,11 +75,11 @@ export function AboutMeSection({ className }: AboutMeSectionProps) {
 
         {/* Content */}
         <div ref={contentRef} className="order-1 md:order-2">
-          <h2 className="font-heading text-5xl md:text-6xl uppercase mb-6 leading-tight">
+          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl uppercase mb-4 sm:mb-6 leading-tight">
             About_Me
           </h2>
 
-          <div className="space-y-4 text-lg text-foreground/90 mb-8">
+          <div className="space-y-3 sm:space-y-4 text-base sm:text-lg text-foreground/90 mb-6 sm:mb-8">
             <p>
               <strong className="font-bold text-foreground">Senior Software Engineer</strong> at Recurly with a passion for building scalable, high-performance applications that solve real-world problems.
             </p>

@@ -17,29 +17,29 @@ export const mdxComponents: MDXComponents = {
   Comparison,
   // Headings
   h1: ({ children }) => (
-    <h1 className="mb-6 mt-8 font-heading text-4xl font-bold uppercase text-foreground">
+    <h1 className="mb-4 sm:mb-6 mt-6 sm:mt-8 font-heading text-3xl sm:text-4xl font-bold uppercase text-foreground">
       {children}
     </h1>
   ),
   h2: ({ children }) => (
-    <h2 className="mb-4 mt-8 font-heading text-3xl font-bold uppercase text-foreground border-b-[3px] border-foreground pb-2">
+    <h2 className="mb-3 sm:mb-4 mt-6 sm:mt-8 font-heading text-2xl sm:text-3xl font-bold uppercase text-foreground border-b-[3px] border-foreground pb-2">
       {children}
     </h2>
   ),
   h3: ({ children }) => (
-    <h3 className="mb-3 mt-6 font-mono text-2xl font-semibold text-foreground">
+    <h3 className="mb-2 sm:mb-3 mt-4 sm:mt-6 font-mono text-xl sm:text-2xl font-semibold text-foreground">
       {children}
     </h3>
   ),
   h4: ({ children }) => (
-    <h4 className="mb-2 mt-4 font-mono text-xl font-semibold text-foreground">
+    <h4 className="mb-2 mt-3 sm:mt-4 font-mono text-lg sm:text-xl font-semibold text-foreground">
       {children}
     </h4>
   ),
 
   // Paragraphs and text
   p: ({ children }) => (
-    <p className="mb-4 text-base leading-relaxed text-foreground">
+    <p className="mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed text-foreground">
       {children}
     </p>
   ),
@@ -126,7 +126,7 @@ export const mdxComponents: MDXComponents = {
 
   // Blockquotes
   blockquote: ({ children }) => (
-    <blockquote className="my-6 border-l-[4px] border-secondary bg-secondary/5 py-4 px-6 italic text-foreground">
+    <blockquote className="my-4 sm:my-6 border-l-[3px] sm:border-l-[4px] border-secondary bg-secondary/5 py-3 sm:py-4 px-4 sm:px-6 italic text-sm sm:text-base text-foreground">
       {children}
     </blockquote>
   ),
@@ -158,12 +158,12 @@ export const mdxComponents: MDXComponents = {
     <tr className="hover:bg-secondary/5 transition-colors">{children}</tr>
   ),
   th: ({ children }) => (
-    <th className="px-4 py-3 text-left font-mono text-sm font-bold uppercase tracking-wider border-r-[2px] border-foreground last:border-r-0">
+    <th className="px-2 sm:px-4 py-2 sm:py-3 text-left font-mono text-xs sm:text-sm font-bold uppercase tracking-wider border-r-[2px] border-foreground last:border-r-0">
       {children}
     </th>
   ),
   td: ({ children }) => (
-    <td className="px-4 py-3 text-sm text-foreground border-r-[2px] border-foreground last:border-r-0">
+    <td className="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-foreground border-r-[2px] border-foreground last:border-r-0">
       {children}
     </td>
   ),

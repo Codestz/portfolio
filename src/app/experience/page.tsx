@@ -27,7 +27,7 @@ export default async function ExperiencePage() {
         description="Professional experience and impactful projects across AI integration, microservices, and full-stack development"
       >
         {projects.length > 0 ? (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
               <Card
                 key={project.slug}

@@ -75,7 +75,7 @@ export function HeroIntroduction({ className }: HeroIntroductionProps) {
 
   return (
     <section className={className}>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
         {/* Image */}
         <div ref={imageRef}>
           <div className="relative border-[4px] border-foreground shadow-[12px_12px_0px_0px] shadow-foreground bg-bg-elevated overflow-hidden">
@@ -99,13 +99,13 @@ export function HeroIntroduction({ className }: HeroIntroductionProps) {
           </Badge>
 
           {/* Name */}
-          <h1 className="font-heading text-6xl md:text-7xl uppercase mb-4 leading-tight">
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl uppercase mb-4 leading-tight">
             Esteban_Estrada
           </h1>
 
           {/* Animated Title */}
-          <div className="mb-6 h-12 flex items-center">
-            <div className="text-2xl md:text-3xl font-bold text-primary font-mono">
+          <div className="mb-6 h-10 sm:h-12 flex items-center">
+            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-primary font-mono">
               &gt;_{' '}
               <span
                 key={currentTitle}
@@ -120,7 +120,7 @@ export function HeroIntroduction({ className }: HeroIntroductionProps) {
           </div>
 
           {/* Intro */}
-          <p className="text-xl text-foreground/90 mb-8 leading-relaxed">
+          <p className="text-lg sm:text-xl text-foreground/90 mb-6 sm:mb-8 leading-relaxed">
             Building scalable, high-performance applications with modern full-stack technologies.
             Passionate about AI integration, autonomous agents, and creating exceptional user experiences.
           </p>
@@ -140,14 +140,14 @@ export function HeroIntroduction({ className }: HeroIntroductionProps) {
       </div>
 
       {/* Stats Cards */}
-      <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+      <div ref={statsRef} className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-12 sm:mt-16">
         {STATS.map((stat, idx) => (
           <div
             key={idx}
-            className="border-[3px] border-foreground bg-bg-elevated shadow-[6px_6px_0px_0px] shadow-foreground p-6 text-center"
+            className="border-[3px] border-foreground bg-bg-elevated shadow-[6px_6px_0px_0px] shadow-foreground p-4 sm:p-6 text-center"
           >
-            <div className="text-5xl font-bold text-primary mb-2 font-mono">{stat.value}</div>
-            <div className="text-lg font-bold uppercase text-foreground/80">{stat.label}</div>
+            <div className="text-4xl sm:text-5xl font-bold text-primary mb-2 font-mono">{stat.value}</div>
+            <div className="text-base sm:text-lg font-bold uppercase text-foreground/80">{stat.label}</div>
           </div>
         ))}
       </div>

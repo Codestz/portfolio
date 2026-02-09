@@ -72,12 +72,12 @@ export function ExperimentsGrid({ posts }: ExperimentsGridProps) {
         categories={categories}
         tags={tags}
         onFilterChange={setFilters}
-        className="mb-12"
+        className="mb-8 sm:mb-10 md:mb-12"
       />
 
       {/* Posts Grid */}
       {filteredPosts.length > 0 ? (
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {filteredPosts.map((post) => (
             <Card
               key={post.slug}
@@ -92,15 +92,15 @@ export function ExperimentsGrid({ posts }: ExperimentsGridProps) {
                     <Badge variant="primary">Featured</Badge>
                   )}
                 </div>
-                <h2 className="mb-2 font-mono text-xl font-bold text-foreground">
+                <h2 className="mb-2 font-mono text-lg sm:text-xl font-bold text-foreground">
                   {post.title}
                 </h2>
-                <p className="text-xs text-foreground/60">
+                <p className="text-[10px] sm:text-xs text-foreground/60">
                   {formatDate(post.publishedAt)} · {post.readTime}
                 </p>
               </Card.Header>
               <Card.Body>
-                <p className="mb-4 text-foreground/70">{post.description}</p>
+                <p className="mb-4 text-sm sm:text-base text-foreground/70">{post.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {post.tags.slice(0, 3).map((tag) => (
                     <Badge key={tag} variant="default" pill>

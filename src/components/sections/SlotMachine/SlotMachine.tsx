@@ -60,6 +60,19 @@ export function SlotMachine({ className }: SlotMachineProps) {
   const [isSpinning, setIsSpinning] = useState(false);
   const [result, setResult] = useState<string>('');
   const [reelSymbols] = useState(createReelSymbols());
+  const [symbolHeight, setSymbolHeight] = useState(120);
+
+  // Responsive symbol height
+  useEffect(() => {
+    const updateSymbolHeight = () => {
+      if (window.innerWidth < 640) setSymbolHeight(80);
+      else if (window.innerWidth < 768) setSymbolHeight(100);
+      else setSymbolHeight(120);
+    };
+    updateSymbolHeight();
+    window.addEventListener('resize', updateSymbolHeight);
+    return () => window.removeEventListener('resize', updateSymbolHeight);
+  }, []);
 
   // Entrance animation
   useEffect(() => {
@@ -99,7 +112,6 @@ export function SlotMachine({ className }: SlotMachineProps) {
 
     const reels = [reel1Ref.current, reel2Ref.current, reel3Ref.current];
     const finalValues: number[] = [];
-    const SYMBOL_HEIGHT = 120; // Height of each symbol slot
 
     // Machine shake animation
     if (machineRef.current) {
@@ -124,16 +136,16 @@ export function SlotMachine({ className }: SlotMachineProps) {
       const extraSpins = index; // Later reels spin more
       const totalSpins = baseSpins + extraSpins;
 
-      // Calculate final position - land within first set of symbols (offset by 120px to center in window)
+      // Calculate final position - land within first set of symbols (offset by symbolHeight to center in window)
       const symbolsPerSpin = CODE_SYMBOLS.length;
-      const finalPosition = -(120 + finalValue * SYMBOL_HEIGHT);
+      const finalPosition = -(symbolHeight + finalValue * symbolHeight);
 
       // Total spinning distance
-      const fullSpinsDistance = totalSpins * symbolsPerSpin * SYMBOL_HEIGHT;
+      const fullSpinsDistance = totalSpins * symbolsPerSpin * symbolHeight;
       const totalDistance = fullSpinsDistance + Math.abs(finalPosition);
 
       // Reset to start position (offset to show middle window)
-      gsap.set(reel, { y: -120 });
+      gsap.set(reel, { y: -symbolHeight });
 
       // Create timeline for this reel
       const tl = gsap.timeline();
@@ -156,7 +168,7 @@ export function SlotMachine({ className }: SlotMachineProps) {
       }, '-=0.3')
       // Bounce overshoot
       .to(reel, {
-        y: finalPosition + SYMBOL_HEIGHT * 0.15,
+        y: finalPosition + symbolHeight * 0.15,
         duration: 0.15,
         ease: 'power1.out',
       })
@@ -222,14 +234,14 @@ export function SlotMachine({ className }: SlotMachineProps) {
 
   return (
     <section ref={triggerRef} className={className}>
-      <div ref={containerRef} className="border-[4px] border-foreground bg-bg-elevated shadow-[12px_12px_0px_0px] shadow-foreground p-8 md:p-12">
+      <div ref={containerRef} className="border-[4px] border-foreground bg-bg-elevated shadow-[12px_12px_0px_0px] shadow-foreground p-4 sm:p-6 md:p-8 lg:p-12">
         <div className="max-w-4xl mx-auto">
           {/* Title */}
           <div className="text-center mb-8">
-            <h2 className="font-heading text-4xl md:text-6xl uppercase mb-3 leading-tight">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase mb-3 leading-tight">
               Code_Slot_Machine
             </h2>
-            <p className="text-lg md:text-xl text-foreground/80 font-mono">
+            <p className="text-base sm:text-lg md:text-xl text-foreground/80 font-mono">
               &gt; Match three symbols to win developer achievements_
             </p>
           </div>
@@ -237,18 +249,18 @@ export function SlotMachine({ className }: SlotMachineProps) {
           {/* Slot Machine Body */}
           <div
             ref={machineRef}
-            className="bg-gradient-to-b from-primary to-primary/80 border-[4px] border-foreground shadow-[8px_8px_0px_0px] shadow-foreground p-8 md:p-12 transition-colors duration-100"
+            className="bg-gradient-to-b from-primary to-primary/80 border-[4px] border-foreground shadow-[8px_8px_0px_0px] shadow-foreground p-4 sm:p-6 md:p-8 lg:p-12 transition-colors duration-100"
           >
             {/* Reels Container */}
             <div className="bg-black/20 border-[3px] border-foreground p-4 mb-8">
-              <div className="flex justify-center gap-3 md:gap-6">
+              <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6">
                 {/* Reel 1 */}
                 <div className="relative">
                   {/* Reel Window - shows 3 symbols */}
-                  <div className="relative w-28 h-[360px] md:w-36 md:h-[360px] bg-white border-[4px] border-foreground shadow-[6px_6px_0px_0px] shadow-foreground overflow-hidden">
+                  <div className="relative w-20 h-[240px] sm:w-24 sm:h-[300px] md:w-32 md:h-[360px] lg:w-36 lg:h-[360px] bg-white border-[4px] border-foreground shadow-[6px_6px_0px_0px] shadow-foreground overflow-hidden">
                     {/* Win line indicators */}
                     <div className="absolute inset-0 pointer-events-none">
-                      <div className="absolute top-1/2 left-0 right-0 h-[120px] -translate-y-1/2 border-y-[3px] border-secondary/30" />
+                      <div className="absolute top-1/2 left-0 right-0 h-[80px] sm:h-[100px] md:h-[120px] -translate-y-1/2 border-y-[3px] border-secondary/30" />
                     </div>
 
                     {/* Scrolling symbols */}
@@ -256,9 +268,9 @@ export function SlotMachine({ className }: SlotMachineProps) {
                       {reelSymbols.map((symbol, idx) => (
                         <div
                           key={idx}
-                          className="h-[120px] flex items-center justify-center border-b-[2px] border-foreground/10"
+                          className="h-[80px] sm:h-[100px] md:h-[120px] flex items-center justify-center border-b-[2px] border-foreground/10"
                         >
-                          <span className={cn('text-6xl md:text-7xl font-mono font-bold', symbol.color)}>
+                          <span className={cn('text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-mono font-bold', symbol.color)}>
                             {symbol.icon}
                           </span>
                         </div>
@@ -269,18 +281,18 @@ export function SlotMachine({ className }: SlotMachineProps) {
 
                 {/* Reel 2 */}
                 <div className="relative">
-                  <div className="relative w-28 h-[360px] md:w-36 md:h-[360px] bg-white border-[4px] border-foreground shadow-[6px_6px_0px_0px] shadow-foreground overflow-hidden">
+                  <div className="relative w-20 h-[240px] sm:w-24 sm:h-[300px] md:w-32 md:h-[360px] lg:w-36 lg:h-[360px] bg-white border-[4px] border-foreground shadow-[6px_6px_0px_0px] shadow-foreground overflow-hidden">
                     <div className="absolute inset-0 pointer-events-none">
-                      <div className="absolute top-1/2 left-0 right-0 h-[120px] -translate-y-1/2 border-y-[3px] border-secondary/30" />
+                      <div className="absolute top-1/2 left-0 right-0 h-[80px] sm:h-[100px] md:h-[120px] -translate-y-1/2 border-y-[3px] border-secondary/30" />
                     </div>
 
                     <div ref={reel2Ref} className="absolute top-0 left-0 right-0">
                       {reelSymbols.map((symbol, idx) => (
                         <div
                           key={idx}
-                          className="h-[120px] flex items-center justify-center border-b-[2px] border-foreground/10"
+                          className="h-[80px] sm:h-[100px] md:h-[120px] flex items-center justify-center border-b-[2px] border-foreground/10"
                         >
-                          <span className={cn('text-6xl md:text-7xl font-mono font-bold', symbol.color)}>
+                          <span className={cn('text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-mono font-bold', symbol.color)}>
                             {symbol.icon}
                           </span>
                         </div>
@@ -291,18 +303,18 @@ export function SlotMachine({ className }: SlotMachineProps) {
 
                 {/* Reel 3 */}
                 <div className="relative">
-                  <div className="relative w-28 h-[360px] md:w-36 md:h-[360px] bg-white border-[4px] border-foreground shadow-[6px_6px_0px_0px] shadow-foreground overflow-hidden">
+                  <div className="relative w-20 h-[240px] sm:w-24 sm:h-[300px] md:w-32 md:h-[360px] lg:w-36 lg:h-[360px] bg-white border-[4px] border-foreground shadow-[6px_6px_0px_0px] shadow-foreground overflow-hidden">
                     <div className="absolute inset-0 pointer-events-none">
-                      <div className="absolute top-1/2 left-0 right-0 h-[120px] -translate-y-1/2 border-y-[3px] border-secondary/30" />
+                      <div className="absolute top-1/2 left-0 right-0 h-[80px] sm:h-[100px] md:h-[120px] -translate-y-1/2 border-y-[3px] border-secondary/30" />
                     </div>
 
                     <div ref={reel3Ref} className="absolute top-0 left-0 right-0">
                       {reelSymbols.map((symbol, idx) => (
                         <div
                           key={idx}
-                          className="h-[120px] flex items-center justify-center border-b-[2px] border-foreground/10"
+                          className="h-[80px] sm:h-[100px] md:h-[120px] flex items-center justify-center border-b-[2px] border-foreground/10"
                         >
-                          <span className={cn('text-6xl md:text-7xl font-mono font-bold', symbol.color)}>
+                          <span className={cn('text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-mono font-bold', symbol.color)}>
                             {symbol.icon}
                           </span>
                         </div>
@@ -322,7 +334,7 @@ export function SlotMachine({ className }: SlotMachineProps) {
                 onClick={spinReels}
                 disabled={isSpinning}
                 className={cn(
-                  'text-2xl md:text-3xl font-bold uppercase px-12 py-6 font-mono',
+                  'text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold uppercase px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6 font-mono',
                   isSpinning && 'opacity-60 cursor-not-allowed'
                 )}
               >
@@ -335,7 +347,7 @@ export function SlotMachine({ className }: SlotMachineProps) {
           {result && (
             <div
               className={cn(
-                'mt-8 border-[4px] border-foreground p-6 md:p-8 text-xl md:text-2xl font-bold uppercase text-center font-mono shadow-[6px_6px_0px_0px] shadow-foreground',
+                'mt-8 border-[4px] border-foreground p-4 sm:p-6 md:p-8 text-lg sm:text-xl md:text-2xl font-bold uppercase text-center font-mono shadow-[6px_6px_0px_0px] shadow-foreground',
                 result.includes('PERFECT') || result.includes('TRIPLE') || result.includes('JACKPOT') || result.includes('LEGENDARY')
                   ? 'bg-secondary text-secondary-text animate-pulse'
                   : result.includes('TWO_MATCH')
