@@ -1,6 +1,7 @@
 # Portfolio Project - SERENA Memory
 
 ## Project Overview
+
 **Name:** Neo-Brutalist Portfolio
 **Purpose:** Senior software engineer portfolio showcasing SOLID principles, design patterns, and clean architecture
 **Tech Stack:** Next.js 16, React 19, TypeScript (strict mode), Tailwind CSS 4
@@ -8,6 +9,7 @@
 ## Architecture Philosophy
 
 ### Core Principles
+
 1. **Separation of Concerns** - Clear boundaries between UI, business logic, and data access
 2. **SOLID Principles** - Every component demonstrates single responsibility and proper abstraction
 3. **Design Patterns** - Repository, Strategy, Factory, Provider patterns
@@ -15,6 +17,7 @@
 5. **Scalability** - Code structure designed to grow without becoming unmaintainable
 
 ### Directory Structure
+
 ```
 src/
 ├── app/                    # Next.js App Router (Presentation Layer)
@@ -38,32 +41,38 @@ src/
 ## Implemented Patterns
 
 ### 1. Repository Pattern
+
 **Location:** `src/lib/repositories/`
 **Purpose:** Abstract data access logic from business logic
 **Components:**
+
 - `IPostRepository`, `IProjectRepository` - Interfaces defining data access contracts
 - `PostRepository`, `ProjectRepository` - Implementations using file system
 - `FileSystemAdapter` - Adapter pattern for file operations
 - `ContentRepository` - Factory for repository instances
 
 ### 2. Result Type Pattern
+
 **Location:** `src/lib/types/common.types.ts`
 **Purpose:** Functional error handling without exceptions
+
 ```typescript
-type Result<T, E = Error> =
-  | { success: true; data: T }
-  | { success: false; error: E };
+type Result<T, E = Error> = { success: true; data: T } | { success: false; error: E };
 ```
 
 ### 3. Type Guards
+
 **Location:** `src/lib/types/content.types.ts`
 **Purpose:** Runtime type safety
+
 - `isPost(obj)` - Validates Post type at runtime
 - `isProject(obj)` - Validates Project type at runtime
 
 ### 4. Pure Functions
+
 **Location:** `src/lib/utils/`
 **Purpose:** Utility functions with no side effects
+
 - String utilities (slugify, truncate, calculateReadingTime)
 - Date utilities (formatDate, getRelativeTime)
 - Style utilities (cn for Tailwind merging)
@@ -71,6 +80,7 @@ type Result<T, E = Error> =
 ## Configuration
 
 ### TypeScript
+
 - **Strict mode:** Enabled
 - **Path aliases:** Configured for clean imports
   - `@/*` → `./src/*`
@@ -79,7 +89,9 @@ type Result<T, E = Error> =
 - **Strict checks:** noUnusedLocals, noImplicitReturns, strictNullChecks
 
 ### Constants
+
 **Location:** `src/lib/constants/`
+
 - `APP_CONFIG` - Application metadata and author info
 - `CONTENT_CONFIG` - Content management settings
 - `THEME_CONFIG` - Theme configuration
@@ -88,7 +100,9 @@ type Result<T, E = Error> =
 ## Design Decisions
 
 ### Immutability
+
 All type definitions use `readonly` properties to prevent mutation:
+
 ```typescript
 export interface Post {
   readonly slug: string;
@@ -98,7 +112,9 @@ export interface Post {
 ```
 
 ### Dependency Inversion
+
 Services and repositories depend on interfaces, not concrete implementations:
+
 ```typescript
 class ContentService implements IContentService {
   // Uses contentRepository through interface
@@ -106,7 +122,9 @@ class ContentService implements IContentService {
 ```
 
 ### Single Responsibility
+
 Each module has one clear purpose:
+
 - **Types:** Define data shapes
 - **Utils:** Pure transformations
 - **Repositories:** Data access
@@ -114,6 +132,7 @@ Each module has one clear purpose:
 - **Components:** UI presentation (to be implemented)
 
 ## Next Steps
+
 1. Implement Service Layer for business logic
 2. Create custom design system (no libraries)
 3. Build layout components
@@ -122,6 +141,7 @@ Each module has one clear purpose:
 6. Add GSAP scroll animations
 
 ## Dependencies Installed
+
 - **Animation:** gsap
 - **3D:** three, @react-three/fiber, @react-three/drei
 - **MDX:** @next/mdx, gray-matter, reading-time, next-mdx-remote
@@ -129,6 +149,7 @@ Each module has one clear purpose:
 - **Dev:** @tailwindcss/typography, @types/three, shiki
 
 ## Coding Conventions
+
 1. Use `readonly` for all type properties
 2. Prefer `const` over `let`
 3. Use Result type for operations that can fail
