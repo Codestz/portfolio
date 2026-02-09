@@ -8,7 +8,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
 ![Tailwind](https://img.shields.io/badge/Tailwind-4.0-06B6D4)
 
-**[Live Demo](https://your-domain.com)** • **[About Me](https://github.com/Codestz)**
+**[Live Demo](https://codestz.dev)** • **[About Me](https://github.com/Codestz)**
 
 ---
 
