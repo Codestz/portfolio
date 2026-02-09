@@ -38,7 +38,13 @@ export function AboutMeSection({ className }: AboutMeSectionProps) {
   }, []);
 
   useEffect(() => {
-    if (!isInView || hasAnimated.current || !imageRef.current || !contentRef.current || prefersReducedMotion()) {
+    if (
+      !isInView ||
+      hasAnimated.current ||
+      !imageRef.current ||
+      !contentRef.current ||
+      prefersReducedMotion()
+    ) {
       return;
     }
 
@@ -81,15 +87,24 @@ export function AboutMeSection({ className }: AboutMeSectionProps) {
 
           <div className="space-y-3 sm:space-y-4 text-base sm:text-lg text-foreground/90 mb-6 sm:mb-8">
             <p>
-              <strong className="font-bold text-foreground">Senior Software Engineer</strong> at Recurly with a passion for building scalable, high-performance applications that solve real-world problems.
+              <strong className="font-bold text-foreground">Senior Software Engineer</strong> at
+              Recurly with a passion for building scalable, high-performance applications that solve
+              real-world problems.
             </p>
 
             <p>
-              I specialize in <strong className="font-bold text-secondary">AI integration</strong>, modern web development, and creating exceptional user experiences. Currently exploring the intersection of autonomous agents and frontend architecture.
+              I specialize in{' '}
+              <strong className="font-bold underline decoration-secondary decoration-2">
+                AI integration
+              </strong>
+              , modern web development, and creating exceptional user experiences. Currently
+              exploring the intersection of autonomous agents and frontend architecture.
             </p>
 
             <p>
-              Based in <strong className="font-bold text-foreground">Medellín, Colombia</strong>, I&apos;m constantly experimenting with cutting-edge technologies and sharing what I learn through tutorials and case studies.
+              Based in <strong className="font-bold text-foreground">Medellín, Colombia</strong>,
+              I&apos;m constantly experimenting with cutting-edge technologies and sharing what I
+              learn through tutorials and case studies.
             </p>
           </div>
 

@@ -56,25 +56,32 @@ export function ProfessionalStory({ className }: ProfessionalStoryProps) {
 
           {/* Story Paragraphs */}
           <p className="text-base sm:text-lg md:text-xl text-foreground/90 leading-relaxed">
-            My journey into software engineering started with a fascination for building things that solve real problems.
-            Over the past 5+ years, I&apos;ve evolved from a full-stack generalist into a specialist at the intersection of{' '}
+            My journey into software engineering started with a fascination for building things that
+            solve real problems. Over the past 5+ years, I&apos;ve evolved from a full-stack
+            generalist into a specialist at the intersection of{' '}
             <strong className="text-primary font-bold">AI integration</strong> and{' '}
             <strong className="text-primary font-bold">frontend architecture</strong>.
           </p>
 
           <p className="text-base sm:text-lg md:text-xl text-foreground/90 leading-relaxed">
-            Currently at <strong className="font-bold text-foreground">Recurly</strong>, I work on building scalable,
-            high-performance applications that handle complex subscription management. Previously, at{' '}
+            Currently at <strong className="font-bold text-foreground">Recurly</strong>, I work on
+            building scalable, high-performance applications that handle complex subscription
+            management. Previously, at{' '}
             <strong className="font-bold text-foreground">Archie Labs</strong> and{' '}
-            <strong className="font-bold text-foreground">8base</strong>, I specialized in integrating AI agents and
-            autonomous systems into production web applications—pushing the boundaries of what&apos;s possible when AI meets modern frontend.
+            <strong className="font-bold text-foreground">8base</strong>, I specialized in
+            integrating AI agents and autonomous systems into production web applications—pushing
+            the boundaries of what&apos;s possible when AI meets modern frontend.
           </p>
 
           <p className="text-base sm:text-lg md:text-xl text-foreground/90 leading-relaxed">
-            What drives me? The thrill of <strong className="text-secondary font-bold">experimentation</strong>. Whether it&apos;s
-            exploring the Model Context Protocol (MCP), optimizing React Compiler performance, or designing Neo-Brutalist interfaces
-            with GSAP—I&apos;m constantly learning, building, and sharing through tutorials and case studies. This portfolio is my digital
-            garden, where code meets creativity.
+            What drives me? The thrill of{' '}
+            <strong className="font-bold underline decoration-secondary decoration-2">
+              experimentation
+            </strong>
+            . Whether it&apos;s exploring the Model Context Protocol (MCP), optimizing React
+            Compiler performance, or designing Neo-Brutalist interfaces with GSAP—I&apos;m
+            constantly learning, building, and sharing through tutorials and case studies. This
+            portfolio is my digital garden, where code meets creativity.
           </p>
 
           {/* Philosophy Highlight */}

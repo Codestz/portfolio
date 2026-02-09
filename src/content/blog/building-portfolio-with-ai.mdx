@@ -23,7 +23,7 @@ This is a technical deep-dive into how I orchestrated multiple AI tools, Model C
 After 3 years working with AI tools like GitHub Copilot, ChatGPT, and Claude, I've always written or modified AI-generated code. This time, I set a different challenge:
 
 - <Icon name="Target" size={18} className="text-primary" /> **Zero lines of human-written code**
-- <Icon name="CheckCircle" size={18} className="text-secondary" /> **AI generates everything**
+- <Icon name="CheckCircle" size={18} className="text-primary" /> **AI generates everything**
 - <Icon name="Brain" size={18} className="text-primary" /> **Human only provides direction and
   planning**
 
@@ -41,7 +41,7 @@ Gemini's web search capabilities made it ideal for design research and trend ana
   trends
 - <Icon name="TrendingUp" size={16} className="text-primary" /> **Analyze modern portfolios** to
   identify patterns
-- <Icon name="Palette" size={16} className="text-secondary" /> **Gather information** about
+- <Icon name="Palette" size={16} className="text-primary" /> **Gather information** about
   Neo-Brutalism from design sites
 - <Icon name="MessageCircle" size={16} className="text-primary" /> **Brainstorm iteratively**
   through Q&A sessions
@@ -448,7 +448,7 @@ The portfolio was built through multiple conversations throughout the day. Seren
 
 ## Model Strategy: Sonnet 4.5 + Haiku 4.5, No Opus
 
-<Icon name="Sparkles" size={18} className="text-secondary" /> **Key decision**: I never used Opus.
+<Icon name="Sparkles" size={18} className="text-primary" /> **Key decision**: I never used Opus.
 Only **Claude Sonnet 4.5** and **Claude Haiku 4.5**.
 
 **Why?** With proper planning, skills, and MCPs, Sonnet 4.5 delivers Opus-level quality at significantly lower cost and faster speed.
@@ -693,7 +693,7 @@ scales (Space Grotesk for headings, JetBrains Mono for code) - Color palette wit
 
 ### 3. Advanced Features
 
-<Icon name="Sparkles" size={16} className="text-secondary" /> Implemented complex functionality: -
+<Icon name="Sparkles" size={16} className="text-primary" /> Implemented complex functionality: -
 GSAP scroll animations with ScrollTrigger and custom React hooks - MDX content pipeline with custom
 component registration - Type-safe content collections with Zod validation - Dynamic routing with
 `generateStaticParams` for SSG - Responsive design with mobile-first Tailwind utilities - Dark mode
@@ -751,8 +751,8 @@ Thinking**: Use for complex architectural decisions requiring step-by-step reaso
 
 ### Quality Metrics
 
-- <Icon name="Gauge" size={16} className="text-secondary" /> **Lighthouse**: 96/100 (Performance:
-  100, Accessibility: 95, Best Practices: 100, SEO: 100)
+- <Icon name="Gauge" size={16} className="text-primary" /> **Lighthouse**: 96/100 (Performance: 100,
+  Accessibility: 95, Best Practices: 100, SEO: 100)
 - <Icon name="Code" size={16} className="text-primary" /> **TypeScript**: Strict mode, full type
   safety, zero `any` types
 - <Icon name="Accessibility" size={16} className="text-primary" /> **Accessibility**: WCAG AA
@@ -821,10 +821,9 @@ Without MCPs, each session starts from zero and uses potentially outdated inform
 
 ### 4. Choose the Right Model (Cost vs Capability)
 
-<Icon name="Cpu" size={16} className="text-secondary" /> Not every task needs the most powerful
-model: - **Planning & Research**: Gemini (web search) or Claude Opus - **Implementation**: Claude
-Sonnet 4.5 (with skills and MCPs) - **Simple edits**: Claude Haiku 4.5 (types, config, simple
-components)
+<Icon name="Cpu" size={16} className="text-primary" /> Not every task needs the most powerful model:
+- **Planning & Research**: Gemini (web search) or Claude Opus - **Implementation**: Claude Sonnet
+4.5 (with skills and MCPs) - **Simple edits**: Claude Haiku 4.5 (types, config, simple components)
 
 **Rule**: Use the smallest model that can accomplish the task with proper context and skills.
 
@@ -842,15 +841,15 @@ Be precise about measurements, class names, and desired outcomes. Specific, acti
 
 This portfolio proves AI can:
 
-- <Icon name="Check" size={16} className="text-secondary" /> Design system architecture (with web
+- <Icon name="Check" size={16} className="text-primary" /> Design system architecture (with web
   research)
-- <Icon name="Check" size={16} className="text-secondary" /> Implement complex features (animations,
+- <Icon name="Check" size={16} className="text-primary" /> Implement complex features (animations,
   MDX pipeline, dynamic routing)
-- <Icon name="Check" size={16} className="text-secondary" /> Write production-quality code
+- <Icon name="Check" size={16} className="text-primary" /> Write production-quality code
   (TypeScript, accessibility, performance)
-- <Icon name="Check" size={16} className="text-secondary" /> Create comprehensive content (technical
+- <Icon name="Check" size={16} className="text-primary" /> Create comprehensive content (technical
   writing, narratives)
-- <Icon name="Check" size={16} className="text-secondary" /> Optimize for performance (Lighthouse
+- <Icon name="Check" size={16} className="text-primary" /> Optimize for performance (Lighthouse
   96/100)
 
 But it still needs:
