@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import Image from 'next/image';
 import { Section } from '@/components/sections';
 import { Button, Badge } from '@/components/ui';
 import { contentService } from '@/lib/services';
@@ -78,21 +79,31 @@ export default async function ExperimentPage({ params }: BlogPostPageProps) {
             <header className="not-prose mb-6 sm:mb-8">
               <div className="mb-3 sm:mb-4 flex flex-wrap items-center gap-2">
                 <Badge variant="secondary">{post.category}</Badge>
-                {post.featured && (
-                  <Badge variant="primary">Featured</Badge>
-                )}
+                {post.featured && <Badge variant="primary">Featured</Badge>}
               </div>
 
               <h1 className="mb-3 sm:mb-4 font-mono text-3xl sm:text-4xl md:text-5xl font-bold uppercase leading-tight tracking-wider text-foreground">
                 {post.title}
               </h1>
 
+              {/* Thumbnail Image (Optional) */}
+              {post.thumbnail && (
+                <div className="mb-6 sm:mb-8 relative border-[4px] border-foreground shadow-[12px_12px_0px_0px] shadow-foreground overflow-hidden bg-bg-elevated">
+                  <Image
+                    src={post.thumbnail}
+                    alt={post.title}
+                    width={1200}
+                    height={630}
+                    className="w-full h-auto object-cover"
+                    priority
+                  />
+                </div>
+              )}
+
               <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm text-foreground/60">
                 <div className="flex items-center gap-1.5 sm:gap-2">
                   <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
-                  <time dateTime={post.publishedAt}>
-                    {formatDate(post.publishedAt)}
-                  </time>
+                  <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
                 </div>
                 <div className="flex items-center gap-1.5 sm:gap-2">
                   <Clock className="h-3 w-3 sm:h-4 sm:w-4" />

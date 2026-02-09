@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import Image from 'next/image';
 import { Section } from '@/components/sections';
 import { Button, Badge } from '@/components/ui';
 import { contentService } from '@/lib/services';
@@ -86,11 +87,23 @@ export default async function ExperienceDetailPage({ params }: ExperiencePagePro
                 {project.title}
               </h1>
 
+              {/* Thumbnail Image (Optional) */}
+              {project.thumbnail && (
+                <div className="mb-6 sm:mb-8 relative border-[4px] border-foreground shadow-[12px_12px_0px_0px] shadow-foreground overflow-hidden bg-bg-elevated">
+                  <Image
+                    src={project.thumbnail}
+                    alt={project.title}
+                    width={1200}
+                    height={630}
+                    className="w-full h-auto object-cover"
+                    priority
+                  />
+                </div>
+              )}
+
               {/* Company & Role */}
               <div className="mb-3 sm:mb-4 space-y-1">
-                <p className="text-lg sm:text-xl font-semibold text-primary">
-                  {project.company}
-                </p>
+                <p className="text-lg sm:text-xl font-semibold text-primary">{project.company}</p>
                 <p className="text-sm sm:text-base text-foreground/70">
                   {project.role} · {project.year}
                 </p>
