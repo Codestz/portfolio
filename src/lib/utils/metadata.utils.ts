@@ -19,7 +19,7 @@ export interface PageMetadataProps {
 }
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://portfolio-mauve-one-4otbuasdyz.vercel.app';
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://codestz.dev';
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 /**
@@ -90,7 +90,7 @@ export function generatePageMetadata({
       title: fullTitle,
       description,
       images: [image],
-      creator: '@estebanestrada', // Update with actual Twitter handle if available
+      creator: '@estebanestrada',
     },
     robots: {
       index: true,
