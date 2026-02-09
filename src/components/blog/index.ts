@@ -1,2 +1,1 @@
-export { PostNavigation } from './PostNavigation';
-export { TableOfContents } from './TableOfContents';
+export { ReadingProgressBar } from './ReadingProgressBar';

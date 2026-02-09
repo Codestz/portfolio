@@ -8,3 +8,5 @@ export { Icon } from './Icon';
 export type { IconProps } from './Icon';
 export { Comparison } from './Comparison';
 export type { ComparisonProps } from './Comparison';
+export { FileTree } from './FileTree';
+export type { FileTreeProps, FileNode } from './FileTree';

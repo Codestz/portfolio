@@ -4,6 +4,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import Image from 'next/image';
 import { Section } from '@/components/sections';
 import { Button, Badge } from '@/components/ui';
+import { ReadingProgressBar } from '@/components/blog';
 import { contentService } from '@/lib/services';
 import { ROUTES } from '@/lib/constants';
 import type { Metadata } from 'next';
@@ -60,6 +61,9 @@ export default async function ExperimentPage({ params }: BlogPostPageProps) {
 
   return (
     <main>
+      {/* Reading Progress Bar */}
+      <ReadingProgressBar />
+
       <Section>
         <div className="mx-auto max-w-3xl">
           {/* Back Link */}

@@ -1,5 +1,5 @@
 import type { MDXComponents } from 'mdx/types';
-import { CodeSnippet, Terminal, Icon, Comparison } from '@/components/mdx';
+import { CodeSnippet, Terminal, Icon, Comparison, FileTree } from '@/components/mdx';
 import { Mermaid } from '@/components/mdx/Mermaid';
 
 /**
@@ -15,6 +15,7 @@ export const mdxComponents: MDXComponents = {
   Terminal,
   Icon,
   Comparison,
+  FileTree,
   // Headings
   h1: ({ children }) => (
     <h1 className="mb-4 sm:mb-6 mt-6 sm:mt-8 font-heading text-3xl sm:text-4xl font-bold uppercase text-foreground">
@@ -39,9 +40,7 @@ export const mdxComponents: MDXComponents = {
 
   // Paragraphs and text
   p: ({ children }) => (
-    <p className="mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed text-foreground">
-      {children}
-    </p>
+    <p className="mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed text-foreground">{children}</p>
   ),
 
   // Lists
@@ -55,9 +54,7 @@ export const mdxComponents: MDXComponents = {
       {children}
     </ol>
   ),
-  li: ({ children }) => (
-    <li className="leading-relaxed">{children}</li>
-  ),
+  li: ({ children }) => <li className="leading-relaxed">{children}</li>,
 
   // Links
   a: ({ href, children }) => (
@@ -83,11 +80,7 @@ export const mdxComponents: MDXComponents = {
       }
 
       // Regular code blocks
-      return (
-        <CodeSnippet language={language}>
-          {String(children).trim()}
-        </CodeSnippet>
-      );
+      return <CodeSnippet language={language}>{String(children).trim()}</CodeSnippet>;
     }
 
     // Inline code
@@ -117,11 +110,7 @@ export const mdxComponents: MDXComponents = {
     }
 
     // Fallback for plain pre blocks
-    return (
-      <CodeSnippet language="text">
-        {String(children).trim()}
-      </CodeSnippet>
-    );
+    return <CodeSnippet language="text">{String(children).trim()}</CodeSnippet>;
   },
 
   // Blockquotes
@@ -132,31 +121,17 @@ export const mdxComponents: MDXComponents = {
   ),
 
   // Horizontal rule
-  hr: () => (
-    <hr className="my-8 border-t-[3px] border-foreground" />
-  ),
+  hr: () => <hr className="my-8 border-t-[3px] border-foreground" />,
 
   // Table
   table: ({ children }) => (
     <div className="my-6 overflow-x-auto">
-      <table className="w-full border-[3px] border-foreground">
-        {children}
-      </table>
+      <table className="w-full border-[3px] border-foreground">{children}</table>
     </div>
   ),
-  thead: ({ children }) => (
-    <thead className="bg-secondary text-white">
-      {children}
-    </thead>
-  ),
-  tbody: ({ children }) => (
-    <tbody className="divide-y-[2px] divide-foreground">
-      {children}
-    </tbody>
-  ),
-  tr: ({ children }) => (
-    <tr className="hover:bg-secondary/5 transition-colors">{children}</tr>
-  ),
+  thead: ({ children }) => <thead className="bg-secondary text-white">{children}</thead>,
+  tbody: ({ children }) => <tbody className="divide-y-[2px] divide-foreground">{children}</tbody>,
+  tr: ({ children }) => <tr className="hover:bg-secondary/5 transition-colors">{children}</tr>,
   th: ({ children }) => (
     <th className="px-2 sm:px-4 py-2 sm:py-3 text-left font-mono text-xs sm:text-sm font-bold uppercase tracking-wider border-r-[2px] border-foreground last:border-r-0">
       {children}
@@ -169,16 +144,8 @@ export const mdxComponents: MDXComponents = {
   ),
 
   // Strong and emphasis
-  strong: ({ children }) => (
-    <strong className="font-bold text-foreground">
-      {children}
-    </strong>
-  ),
-  em: ({ children }) => (
-    <em className="italic text-foreground">
-      {children}
-    </em>
-  ),
+  strong: ({ children }) => <strong className="font-bold text-foreground">{children}</strong>,
+  em: ({ children }) => <em className="italic text-foreground">{children}</em>,
 };
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {

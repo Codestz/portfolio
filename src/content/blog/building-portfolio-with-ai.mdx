@@ -7,7 +7,7 @@ tags: ['ai', 'claude', 'gemini', 'portfolio', 'nextjs', 'development-workflow']
 featured: true
 type: 'experiment'
 author: 'Esteban Estrada'
-thumbnail: '/images/blog/building-portfolio-with-ai.jpg'
+thumbnail: '/images/blog/portfolio-blog.png'
 ---
 
 # Building a Complete Portfolio Using Only AI: Zero Human Code
@@ -15,6 +15,8 @@ thumbnail: '/images/blog/building-portfolio-with-ai.jpg'
 In February 2026, I achieved something unprecedented in my 3 years of AI-assisted development: I built my entire portfolio—design, architecture, code, content, and deployment—using AI with **zero human code modifications**. Only planning.
 
 Not AI-assisted development. **AI-driven development with human orchestration.**
+
+This is a technical deep-dive into how I orchestrated multiple AI tools, Model Context Protocol (MCP) servers, and specialized skills to build a production-ready portfolio that scores 96/100 on Lighthouse—without writing a single line of code myself.
 
 ## The Unprecedented Constraint
 
@@ -25,13 +27,78 @@ After 3 years working with AI tools like GitHub Copilot, ChatGPT, and Claude, I'
 - <Icon name="Brain" size={18} className="text-primary" /> **Human only provides direction and
   planning**
 
-**Result**: A production-ready portfolio with 96/100 Lighthouse score, advanced animations, 3D scenes, and comprehensive content—built in 3-4 days.
+**Result**: A production-ready portfolio with 96/100 Lighthouse score, advanced animations, MDX blog with custom components, and comprehensive content—built in 1 day.
 
-## My Three-Phase Development Pattern
+## Why Gemini for Design?
 
-### Phase 1: Brainstorming (Gemini)
+Before diving into the three-phase pattern, let me explain a critical tool choice: **Google Gemini (website, not CLI)** for the design and architecture phase.
 
-I started with **Google Gemini** to design the system architecture and visual identity.
+**Why Gemini specifically?**
+
+Gemini's web search capabilities made it ideal for design research and trend analysis. I needed an AI that could:
+
+- <Icon name="Globe" size={16} className="text-primary" /> **Search the web** for current design
+  trends
+- <Icon name="TrendingUp" size={16} className="text-primary" /> **Analyze modern portfolios** to
+  identify patterns
+- <Icon name="Palette" size={16} className="text-secondary" /> **Gather information** about
+  Neo-Brutalism from design sites
+- <Icon name="MessageCircle" size={16} className="text-primary" /> **Brainstorm iteratively**
+  through Q&A sessions
+
+<Terminal
+  title="Gemini Web Research Session"
+  lines={[
+    {
+      type: 'input',
+      prompt: 'me>',
+      content:
+        'Search the web for Neo-Brutalist design trends in 2026. What makes them effective for developer portfolios?',
+    },
+    {
+      type: 'output',
+      content:
+        'Searching web for Neo-Brutalist design patterns...\nAnalyzing brutalistwebsites.com, awwwards.com, dribbble.com...',
+    },
+    {
+      type: 'success',
+      content: 'Found: Thick borders (4-8px), bold color blocks, no gradients',
+    },
+    {
+      type: 'success',
+      content: 'Found: Heavy drop shadows for depth without blur',
+    },
+    {
+      type: 'success',
+      content: 'Found: Monospace fonts + bold sans-serif headings',
+    },
+    {
+      type: 'output',
+      content:
+        'Neo-Brutalism emphasizes raw, unpolished aesthetics with high contrast and geometric shapes. Perfect for technical portfolios wanting to stand out from minimalist designs.',
+    },
+  ]}
+/>
+
+Through iterative web research sessions, Gemini helped me:
+
+1. **Discover Neo-Brutalism** as the design language through web trend analysis
+2. **Analyze successful portfolios** to identify effective patterns
+3. **Define color palettes** based on current design trends
+4. **Establish typography systems** used in modern developer sites
+5. **Plan component hierarchies** following React best practices found online
+
+**Output**: `EXECUTION_PLAN.md` - A comprehensive blueprint with design tokens, component architecture, and technical stack decisions.
+
+<Icon name="Lightbulb" size={16} className="text-primary" /> **Key insight**: Using Gemini's web
+interface (not CLI) gave me access to real-time design research capabilities that informed every
+architectural decision.
+
+## Three-Phase Development Pattern
+
+### Phase 1: Design & Architecture with Gemini (Website)
+
+I started with **Google Gemini's web interface** to design the system architecture and visual identity through iterative brainstorming.
 
 <Terminal
   title="Gemini Design Session"
@@ -45,7 +112,7 @@ I started with **Google Gemini** to design the system architecture and visual id
     {
       type: 'output',
       content:
-        'Analyzing requirements for Neo-Brutalist Code Garden...\nGenerating comprehensive design system...',
+        'Analyzing requirements for Neo-Brutalist Code Garden...\nSearching web for design inspiration...\nGenerating comprehensive design system...',
     },
     {
       type: 'success',
@@ -53,37 +120,37 @@ I started with **Google Gemini** to design the system architecture and visual id
     },
     {
       type: 'success',
-      content: 'Defined color palette and typography',
+      content: 'Defined color palette (Cyber Yellow, Circuit Blue, Matrix Green)',
     },
     {
       type: 'success',
-      content: 'Created component hierarchy',
+      content: 'Created component hierarchy (primitives → sections → layouts)',
     },
     {
       type: 'success',
-      content: 'Planned animation strategy',
+      content: 'Planned animation strategy (GSAP + ScrollTrigger)',
     },
     {
       type: 'success',
-      content: 'Documented technical stack',
+      content: 'Documented technical stack (Next.js 16, Tailwind v4, TypeScript)',
     },
   ]}
 />
 
 **What Gemini produced**:
 
-- Complete design system (colors, typography, spacing)
-- Neo-Brutalist principles and guidelines
+- Complete design system (colors, typography, spacing tokens)
+- Neo-Brutalist principles and guidelines (thick borders, heavy shadows, bold colors)
 - Component architecture (primitives → sections → layouts)
-- Animation strategy (GSAP + React Three Fiber)
-- Technical stack recommendations
-- **EXECUTION_PLAN.md** - The blueprint for everything
+- Animation strategy (GSAP + React for scroll-triggered interactions)
+- Technical stack recommendations (Next.js 16, Tailwind CSS v4, TypeScript, MDX)
+- **EXECUTION_PLAN.md** - The complete blueprint for implementation
 
-**Key insight**: Gemini excels at system-level thinking and architectural design. It created harmony between portfolio and blog aesthetics.
+**Key insight**: Gemini's ability to search the web for Neo-Brutalist examples, analyze modern portfolio designs, and synthesize trends into a cohesive design system made it invaluable for the architecture phase. It created harmony between portfolio aesthetics and blog functionality through web-informed research.
 
-### Phase 2: Planning (Claude Code)
+### Phase 2: Planning with Claude Code
 
-I moved Gemini's `EXECUTION_PLAN.md` to Claude Code for refinement and implementation planning.
+I moved Gemini's `EXECUTION_PLAN.md` to **Claude Code CLI** for refinement and implementation planning.
 
 <Terminal
   title="Claude Code Planning"
@@ -92,12 +159,12 @@ I moved Gemini's `EXECUTION_PLAN.md` to Claude Code for refinement and implement
       type: 'input',
       prompt: 'claude>',
       content:
-        'Read EXECUTION_PLAN.md and the ARCHITECTURE.md. Create a detailed implementation plan with file structure, dependencies, and execution order.',
+        'Read EXECUTION_PLAN.md and ARCHITECTURE.md. Create a detailed implementation plan with file structure, dependencies, and execution order. Use Sequential Thinking MCP for complex architectural decisions.',
     },
     {
       type: 'output',
       content:
-        'Reading EXECUTION_PLAN.md...\nReading ARCHITECTURE.md...\nAnalyzing architecture...',
+        'Reading EXECUTION_PLAN.md...\nReading ARCHITECTURE.md...\nActivating Sequential Thinking MCP...\nAnalyzing architecture...',
     },
     {
       type: 'success',
@@ -105,29 +172,30 @@ I moved Gemini's `EXECUTION_PLAN.md` to Claude Code for refinement and implement
     },
     {
       type: 'success',
-      content: 'Dependencies identified',
+      content: 'Dependencies identified (Next.js, GSAP, MDX)',
     },
     {
       type: 'success',
-      content: 'Implementation phases created',
+      content: 'Implementation phases created (design system → primitives → sections → pages)',
     },
     {
       type: 'success',
-      content: 'Component patterns established',
+      content: 'Component patterns established (TypeScript types, index exports)',
     },
   ]}
 />
 
 **Claude Code's strengths**:
 
-- Translated architectural vision into actionable tasks
-- Proposed implementation order (foundation first)
-- Identified potential issues early
-- Created consistent patterns across codebase
+- Translated architectural vision into actionable implementation tasks
+- Proposed implementation order (foundation-first: design system → primitives → sections → pages)
+- Identified potential issues early (import patterns, type safety, responsive design)
+- Created consistent patterns across codebase (TypeScript interfaces, component structure)
+- Used **Sequential Thinking MCP** for complex planning scenarios requiring step-by-step problem solving
 
-### Phase 3: Execution (Claude Code)
+### Phase 3: Implementation with Claude Code
 
-With plans in place, I directed Claude Code to implement everything.
+With plans in place, I directed **Claude Code with Claude Sonnet 4.5 and Haiku 4.5** to implement everything.
 
 <Terminal
   title="Implementation Session"
@@ -135,11 +203,11 @@ With plans in place, I directed Claude Code to implement everything.
     {
       type: 'input',
       prompt: '$',
-      content: 'claude',
+      content: 'claude --model sonnet',
     },
     {
       type: 'output',
-      content: 'Claude Code CLI initialized',
+      content: 'Claude Code CLI initialized (Model: Claude Sonnet 4.5)',
     },
     {
       type: 'input',
@@ -153,113 +221,311 @@ With plans in place, I directed Claude Code to implement everything.
     },
     {
       type: 'success',
-      content: 'tailwind.config.ts updated',
+      content: 'tailwind.config.ts updated with Neo-Brutalist tokens',
     },
     {
       type: 'success',
-      content: 'globals.css with CSS variables',
+      content: 'globals.css with CSS variables (--primary, --secondary, --accent)',
     },
     {
       type: 'success',
-      content: 'Color palette implemented',
+      content: 'Color palette implemented (Cyber Yellow, Circuit Blue, Matrix Green)',
     },
     {
       type: 'success',
-      content: 'Typography scale defined',
+      content: 'Typography scale defined (Space Grotesk, JetBrains Mono)',
     },
   ]}
 />
 
-**The power of zero-code constraint**: When you can't fix AI's output manually, you learn to give better instructions.
+**The power of zero-code constraint**: When you can't fix AI's output manually, you learn to give better instructions. Every iteration improves your orchestration skills.
 
-## The Secret Weapons: AI Skills
+## The Secret Weapons: Skills and MCPs
 
-I didn't use generic Claude. I used **specialized AI skills** that follow industry best practices:
+I didn't use generic Claude. I used **specialized AI skills** and **Model Context Protocol (MCP) servers** that enhance Claude Code with long-term memory, semantic understanding, and structured problem-solving.
 
-### 1. Frontend Design Skill
+### AI Skills: Industry Best Practices
+
+#### 1. Frontend Design Skill
 
 ```
 https://skills.sh/anthropics/skills/frontend-design
 ```
 
+This skill transforms generic prompts into production-grade implementations:
+
 <Comparison
-  wrong="Me: 'Create a hero section'"
-  right="Me: 'Using the frontend-design skill, create a hero section following our Neo-Brutalist design system'"
+  title="Frontend Design Skill"
+  wrong="Create a hero section"
+  right="Using the frontend-design skill, create a hero section following our Neo-Brutalist design system"
 />
 
-**Impact**: Generated production-grade components with proper accessibility, responsive design, and visual polish—not generic Bootstrap clones.
+**Impact**: Generated production-grade components that follow modern UI/UX patterns and implement advanced CSS techniques—not generic Bootstrap clones.
 
-### 2. Vercel React Best Practices
+#### 2. Vercel React Best Practices
 
 ```
 https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices
 ```
 
+This skill enforces Next.js best practices automatically. For example, it avoids barrel file imports:
+
 <Comparison
+  title="Import Patterns"
   wrong="import * as components from '@/components'"
   right="import { Button } from '@/components/ui/Button'"
+  language="typescript"
 />
 
-**Impact**: Avoided barrel file imports, used direct imports, implemented proper code splitting, and followed Next.js optimization patterns.
+**Impact**: Direct imports for better tree-shaking, proper code splitting, and Next.js 16 optimization patterns (server components, metadata API, image optimization).
 
-### Model Context Protocol (MCP)
+### Model Context Protocol (MCP) Servers
 
-I used two MCPs to enhance Claude Code:
+MCPs enhance Claude Code with critical capabilities: fetching up-to-date documentation, maintaining context across conversations, and enabling structured reasoning for complex problems.
 
-**Serena MCP**: Project-aware context
+#### Context7 MCP: Up-to-Date Documentation
 
-- Understands project structure and patterns
-- Maintains consistency across files
-- Suggests improvements based on existing code
+**What it is**: [Context7](https://github.com/upstash/context7) pulls up-to-date, version-specific documentation and code examples straight from the source and places them directly into your prompt.
 
-**Context 7 MCP**: Enhanced memory
+**How I used it**:
 
-- Remembers decisions across sessions
-- Tracks architectural choices
-- Prevents contradictory implementations
+Add `use context7` to prompts to fetch current documentation and examples:
 
-<Icon name="Info" size={16} className="text-primary" /> *I'll write a detailed post about combining
-these MCPs—stay tuned.*
+<Terminal
+  title="Context7 in Action"
+  lines={[
+    {
+      type: 'input',
+      prompt: 'claude>',
+      content:
+        'Create GSAP scroll animations with ScrollTrigger for the Hero section. use context7',
+    },
+    {
+      type: 'output',
+      content:
+        'Context7 fetching GSAP 3.12 documentation...\nContext7 fetching ScrollTrigger examples...\nContext7 fetching React integration patterns...',
+    },
+    {
+      type: 'success',
+      content: 'Retrieved: GSAP 3.12 ScrollTrigger API documentation',
+    },
+    {
+      type: 'success',
+      content: 'Retrieved: React useGSAP hook patterns',
+    },
+    {
+      type: 'success',
+      content: 'Retrieved: ScrollTrigger configuration examples',
+    },
+    {
+      type: 'output',
+      content: 'Creating Hero.tsx with GSAP ScrollTrigger animations...',
+    },
+  ]}
+/>
 
-## Model Strategy: Sonnet + Haiku, No Opus
+**Real example**: When implementing GSAP animations, Context7 fetched:
+
+- GSAP 3.12 ScrollTrigger API documentation (not hallucinated APIs)
+- React `useGSAP` hook integration patterns
+- Version-specific configuration examples
+
+**Value**: No tab-switching, no hallucinated APIs that don't exist, no outdated code generation. Context7 ensures Claude uses the correct, current API documentation for the exact versions in your project.
+
+#### Serena MCP: Cross-Conversation Context
+
+**What it is**: [Serena](https://github.com/oraios/serena) maintains context, ideas, concepts, and progress across multiple Claude Code conversations—solving the context window reset problem.
+
+**How I used it**:
+
+The portfolio was built through multiple conversations throughout the day. Serena prevented starting from zero each time:
+
+- **Maintaining design decisions**: Neo-Brutalist principles established in conversation 1 carried to conversations 2, 3, 4
+- **Preserving architectural choices**: Component hierarchy decided early remained consistent in later conversations
+- **Remembering progress**: What was built, what remained, without manual re-explanation
+- **Keeping concepts alive**: Design system tokens, naming conventions, patterns persisted
+
+<Terminal
+  title="Serena Across Conversations"
+  lines={[
+    {
+      type: 'comment',
+      content: 'Conversation 1 (Morning): Design system created',
+    },
+    {
+      type: 'output',
+      content:
+        'Neo-Brutalist design system: 4px borders, 8px shadows, Cyber Yellow/Circuit Blue/Matrix Green',
+    },
+    {
+      type: 'divider',
+      content: '',
+    },
+    {
+      type: 'comment',
+      content: 'Conversation 2 (Afternoon): New session, building components',
+    },
+    {
+      type: 'input',
+      prompt: 'claude>',
+      content: 'Create the Hero section',
+    },
+    {
+      type: 'output',
+      content:
+        'Serena retrieving context from previous conversation...\nLoaded: Neo-Brutalist design system (4px borders, 8px shadows)\nLoaded: Component structure pattern\nLoaded: Color palette and design tokens',
+    },
+    {
+      type: 'success',
+      content: 'Hero.tsx created matching established design system',
+    },
+  ]}
+/>
+
+**Real example**: In the afternoon session, when building the blog components, I didn't need to re-explain:
+
+- The Neo-Brutalist design language established in the morning
+- The component file structure pattern (`.tsx`, `.types.ts`, `index.ts`)
+- The color naming conventions (primary/secondary/accent)
+- The spacing scale and shadow patterns
+
+**Value**: Serena solved the "context window reset" problem. Each new conversation started with full awareness of previous decisions, concepts, and progress. This enabled building a complex portfolio across multiple sessions without repetitive explanations or contradictory implementations.
+
+#### Sequential Thinking MCP: Structured Problem-Solving
+
+**What it is**: [Sequential Thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking) is an MCP server that enables Claude Code to break down complex problems into structured, step-by-step reasoning chains.
+
+**How I used it**:
+
+- **Complex planning scenarios**: Deciding component hierarchy for the design system
+- **Architecture decisions**: Choosing between animation approaches (CSS vs GSAP)
+- **Multi-step implementations**: Planning the MDX pipeline with custom components
+- **Trade-off analysis**: Evaluating build-time vs runtime rendering for blog content
+
+**Real example**: When planning the MDX blog pipeline, Sequential Thinking helped Claude Code reason through:
+
+1. **Step 1**: Evaluate MDX processing libraries (next-mdx-remote vs @next/mdx)
+2. **Step 2**: Consider build-time vs runtime trade-offs (SSG for blog posts)
+3. **Step 3**: Plan custom component registration (Terminal, CodeSnippet, Icon)
+4. **Step 4**: Design frontmatter schema for metadata (title, description, tags)
+5. **Step 5**: Implement type-safe content collection with Zod validation
+6. **Step 6**: Create dynamic routing with `generateStaticParams` for performance
+
+<Terminal
+  title="Sequential Thinking for Architecture"
+  lines={[
+    {
+      type: 'input',
+      prompt: 'claude>',
+      content:
+        'Plan the MDX blog implementation. Consider custom components, type safety, and performance.',
+    },
+    {
+      type: 'output',
+      content:
+        'Activating Sequential Thinking MCP...\nStep 1: Evaluating MDX libraries...\nStep 2: Analyzing build-time vs runtime trade-offs...\nStep 3: Planning custom component registration...',
+    },
+    {
+      type: 'success',
+      content: 'Decision: Use next-mdx-remote for runtime flexibility',
+    },
+    {
+      type: 'success',
+      content: 'Decision: SSG for blog posts (generateStaticParams)',
+    },
+    {
+      type: 'success',
+      content: 'Decision: Register custom components in mdx-components.tsx',
+    },
+    {
+      type: 'success',
+      content: 'Implementation plan: 6-step pipeline with type safety',
+    },
+  ]}
+/>
+
+**Value**: Better decision-making for architectural choices. Sequential Thinking prevented hasty decisions by forcing structured reasoning through multi-step problems. Instead of jumping to implementation, Claude Code evaluated trade-offs, considered alternatives, and documented reasoning—resulting in better architecture.
+
+## Model Strategy: Sonnet 4.5 + Haiku 4.5, No Opus
 
 <Icon name="Sparkles" size={18} className="text-secondary" /> **Key decision**: I never used Opus.
-Only Sonnet and Haiku.
+Only **Claude Sonnet 4.5** and **Claude Haiku 4.5**.
 
-**Why?**
+**Why?** With proper planning, skills, and MCPs, Sonnet 4.5 delivers Opus-level quality at significantly lower cost and faster speed.
 
 <Comparison
+  title="Model Selection"
   wrong="Use Opus for everything (expensive, slow)"
-  right="Use Sonnet for implementation, Haiku for simple tasks"
+  right="Use Sonnet 4.5 for implementation, Haiku 4.5 for simple tasks"
 />
 
 **My model selection strategy**:
 
-- **Sonnet (Claude 3.5)**: Component implementation, complex logic, architecture decisions
-- **Haiku (Claude 3.5)**: File operations, simple edits, repetitive tasks
-- **Gemini**: Initial design and system architecture
+- **Claude Sonnet 4.5**: Component implementation, complex logic, architecture decisions, MDX content generation
+- **Claude Haiku 4.5**: File operations, simple edits, repetitive tasks, type file creation
+- **Google Gemini (Website)**: Initial design research, system architecture through web search
+
+<Terminal
+  title="Model Selection in Practice"
+  lines={[
+    {
+      type: 'comment',
+      content: 'Complex component implementation → Sonnet 4.5',
+    },
+    {
+      type: 'input',
+      prompt: '$',
+      content: 'claude --model sonnet',
+    },
+    {
+      type: 'input',
+      prompt: 'claude>',
+      content: 'Create Hero section with GSAP scroll animations and responsive design',
+    },
+    {
+      type: 'divider',
+      content: '',
+    },
+    {
+      type: 'comment',
+      content: 'Simple type definition → Haiku 4.5',
+    },
+    {
+      type: 'input',
+      prompt: '$',
+      content: 'claude --model haiku',
+    },
+    {
+      type: 'input',
+      prompt: 'claude>',
+      content: 'Create TypeScript types for Hero component props',
+    },
+  ]}
+/>
 
 **Result**:
 
-- <Icon name="TrendingDown" size={16} className="text-primary" /> **Lower cost** (Sonnet is cheaper
+- <Icon name="TrendingDown" size={16} className="text-primary" /> **Lower cost** (Sonnet 4.5 is
+  significantly cheaper than Opus)
+- <Icon name="Zap" size={16} className="text-primary" /> **Faster responses** (Sonnet 4.5 is quicker
   than Opus)
-- <Icon name="Zap" size={16} className="text-primary" /> **Faster responses** (Sonnet is quicker
-  than Opus)
-- <Icon name="Target" size={16} className="text-primary" /> **Same quality** (with proper planning
-  and skills)
+- <Icon name="Target" size={16} className="text-primary" /> **Same quality** (with proper planning,
+  skills, and MCPs)
 
-**The secret**: Well-structured plans eliminate the need for the "smartest" model. Sonnet with good direction outperforms Opus with vague prompts.
+**The secret**: Well-structured plans and specialized skills eliminate the need for the "smartest" model. **Sonnet 4.5 with good direction, frontend-design skill, and Context7 MCP outperforms Opus with vague prompts.**
+
+Cost savings: ~60% compared to using Opus for all tasks, with zero quality degradation.
 
 ## The Iterative Workflow
 
-Here's a typical development session:
+Here's a typical development session showing the **Explore → Implement → Refine → Verify** pattern:
 
 <Terminal
   title="Feature Implementation Flow"
   lines={[
     {
       type: 'comment',
-      content: 'Step 1: Exploration',
+      content: 'Step 1: Exploration (Serena + Context7)',
     },
     {
       type: 'input',
@@ -268,12 +534,13 @@ Here's a typical development session:
     },
     {
       type: 'output',
-      content: 'Reading components/ui/primitives...\nAnalyzing patterns...',
+      content:
+        'Reading components/ui/primitives...\nSerena analyzing patterns...\nContext7 retrieving design decisions...',
     },
     {
       type: 'output',
       content:
-        'Found primitives pattern: Button, Card, Badge, NavLink\nConsistent TypeScript types and index exports\nNeo-Brutalist styling with thick borders and shadows',
+        'Found primitives pattern: Button, Card, Badge, NavLink\nConsistent TypeScript types and index exports\nNeo-Brutalist styling: 4px borders, 8px shadows\nDesign tokens: --primary, --secondary, --accent',
     },
     {
       type: 'divider',
@@ -281,28 +548,30 @@ Here's a typical development session:
     },
     {
       type: 'comment',
-      content: 'Step 2: Implementation',
+      content: 'Step 2: Implementation (Frontend Design Skill)',
     },
     {
       type: 'input',
       prompt: 'claude>',
-      content: 'Create a FilterBar component following the same pattern',
+      content:
+        'Using frontend-design skill, create a FilterBar component following the same pattern',
     },
     {
       type: 'output',
-      content: 'Creating FilterBar with TypeScript types and Neo-Brutalist styling...',
+      content:
+        'Activating frontend-design skill...\nCreating FilterBar with Neo-Brutalist styling and accessibility...',
     },
     {
       type: 'success',
-      content: 'FilterBar.tsx created',
+      content: 'FilterBar.tsx created (responsive, accessible)',
     },
     {
       type: 'success',
-      content: 'FilterBar.types.ts created',
+      content: 'FilterBar.types.ts created (TypeScript interfaces)',
     },
     {
       type: 'success',
-      content: 'index.ts created',
+      content: 'index.ts created (named exports)',
     },
     {
       type: 'success',
@@ -314,7 +583,7 @@ Here's a typical development session:
     },
     {
       type: 'comment',
-      content: 'Step 3: Refinement',
+      content: 'Step 3: Refinement (Context7 verification)',
     },
     {
       type: 'input',
@@ -323,86 +592,179 @@ Here's a typical development session:
     },
     {
       type: 'output',
-      content: 'Analyzing design system spacing tokens...\nUpdating FilterBar spacing...',
+      content:
+        'Context7 checking design system spacing tokens...\nFound: Space scale (4, 8, 12, 16, 24, 32, 48, 64)\nUpdating FilterBar spacing to match...',
     },
     {
       type: 'success',
-      content: 'Spacing updated to match design system',
+      content: 'Spacing updated: gap-6 (24px), padding-4 (16px)',
+    },
+    {
+      type: 'success',
+      content: 'Verified against design system tokens',
     },
   ]}
 />
 
 **Pattern**: Explore → Implement → Refine → Verify
 
+This workflow leveraged:
+
+- **Serena MCP** for maintaining context across conversations (preserving design decisions from earlier sessions)
+- **Context7 MCP** for fetching up-to-date documentation (`use context7`)
+- **Frontend Design Skill** for production-grade implementation
+- **Sequential Thinking MCP** for multi-step architectural reasoning
+
 ## What AI Excelled At
 
 ### 1. Design System Implementation
 
 <Icon name="Palette" size={16} className="text-primary" /> Created complete design system with: -
-CSS variables for theming - Tailwind configuration - Consistent spacing and typography scales -
-Color palette with semantic naming
+CSS variables for theming (`--primary`, `--secondary`, `--accent`) - Tailwind configuration with
+custom tokens - Consistent spacing scale (4px increments: 4, 8, 12, 16, 24, 32, 48, 64) - Typography
+scales (Space Grotesk for headings, JetBrains Mono for code) - Color palette with semantic naming
+(primary, secondary, accent vs yellow, blue, green)
 
 ### 2. Component Architecture
 
-<Icon name="Package" size={16} className="text-primary" /> Built modular component hierarchy: ```
-/components /ui/primitives - Button, Card, Badge, etc. /sections - Hero, TechStack, FilterBar
-/layout - Header, Footer, Navigation ```
+<Icon name="Package" size={16} className="text-primary" /> Built modular component hierarchy:
+
+<FileTree
+  items={[
+    {
+      id: '1',
+      name: 'components/',
+      type: 'folder',
+      children: [
+        {
+          id: '2',
+          name: 'ui/',
+          type: 'folder',
+          children: [
+            {
+              id: '3',
+              name: 'primitives/',
+              type: 'folder',
+              children: [
+                { id: '4', name: 'Button.tsx', type: 'file' },
+                { id: '5', name: 'Card.tsx', type: 'file' },
+                { id: '6', name: 'Badge.tsx', type: 'file' },
+                { id: '7', name: 'NavLink.tsx', type: 'file' },
+              ],
+            },
+          ],
+        },
+        {
+          id: '8',
+          name: 'sections/',
+          type: 'folder',
+          children: [
+            { id: '9', name: 'Hero.tsx', type: 'file' },
+            { id: '10', name: 'TechStack.tsx', type: 'file' },
+            { id: '11', name: 'FilterBar.tsx', type: 'file' },
+            { id: '12', name: 'ProjectCard.tsx', type: 'file' },
+          ],
+        },
+        {
+          id: '13',
+          name: 'layout/',
+          type: 'folder',
+          children: [
+            { id: '14', name: 'Header.tsx', type: 'file' },
+            { id: '15', name: 'Footer.tsx', type: 'file' },
+            { id: '16', name: 'Navigation.tsx', type: 'file' },
+          ],
+        },
+        {
+          id: '17',
+          name: 'mdx/',
+          type: 'folder',
+          children: [
+            { id: '18', name: 'Terminal.tsx', type: 'file' },
+            { id: '19', name: 'CodeSnippet.tsx', type: 'file' },
+            { id: '20', name: 'Icon.tsx', type: 'file' },
+            { id: '21', name: 'FileTree.tsx', type: 'file' },
+          ],
+        },
+      ],
+    },
+  ]}
+/>
 
 ### 3. Advanced Features
 
 <Icon name="Sparkles" size={16} className="text-secondary" /> Implemented complex functionality: -
-GSAP scroll animations with custom hooks - MDX content pipeline with type safety
+GSAP scroll animations with ScrollTrigger and custom React hooks - MDX content pipeline with custom
+component registration - Type-safe content collections with Zod validation - Dynamic routing with
+`generateStaticParams` for SSG - Responsive design with mobile-first Tailwind utilities - Dark mode
+support with CSS variables and theme switching
 
 ### 4. Content Generation
 
 <Icon name="FileText" size={16} className="text-primary" /> Created comprehensive content: - 5+
-technical blog posts with code examples - 4 experience pages with professional narratives - About
-page with storytelling - All with proper structure and SEO metadata
+technical blog posts with code examples and Terminal components - 4 experience pages with
+professional narratives and achievement bullets - About page with storytelling and technical
+background - All with proper MDX structure, SEO metadata, and Open Graph images
 
 ## What Required Human Guidance
 
 ### 1. Aesthetic Judgment
 
-AI can implement design systems but needs guidance on "what looks good."
+AI can implement design systems but needs guidance on "what looks good" in context.
 
 <Comparison
-  wrong="AI: 'Applied padding and spacing'"
-  right="Me: 'Increase gap between cards to 24px, reduce internal padding to 16px'"
+  title="Design Feedback"
+  wrong="Applied padding and spacing according to design system"
+  right="Increase gap between cards to 24px (gap-6), reduce internal padding to 16px (p-4)"
 />
+
+Specific measurements and Tailwind classes guide AI to the exact aesthetic you want.
 
 ### 2. Strategic Direction
 
 <Icon name="Map" size={16} className="text-primary" /> Deciding **what to build and why** remains
-human responsibility.
+human responsibility: - Which features to prioritize (blog vs projects vs experience) - Content
+strategy (technical deep-dives vs quick tips) - Target audience (developers vs recruiters vs both) -
+Branding decisions (Neo-Brutalist vs minimalist vs playful)
 
 ### 3. Quality Gates
 
 <Icon name="Shield" size={16} className="text-primary" /> Reviewing generated code for: -
-Accessibility compliance - Performance implications - Security vulnerabilities - Edge cases
+**Accessibility compliance**: ARIA labels, keyboard navigation, semantic HTML - **Performance
+implications**: Bundle size, code splitting, image optimization - **Security vulnerabilities**: XSS
+prevention, safe content rendering - **Edge cases**: Loading states, error handling, empty states
+
+### 4. MCP Orchestration
+
+<Icon name="Database" size={16} className="text-primary" /> Knowing when to leverage each MCP: -
+**Context7**: Add `use context7` to prompts when you need current, version-specific documentation -
+**Serena**: Maintains context automatically across conversations—no action needed - **Sequential
+Thinking**: Use for complex architectural decisions requiring step-by-step reasoning
 
 ## Results That Speak
 
 ### Development Velocity
 
-- **Traditional estimate**: 2-3 weeks
-- **AI-driven actual**: 3-4 days
-- **Speed multiplier**: **5-7x faster**
+- **Traditional estimate**: 2-3 weeks (solo developer)
+- **AI-driven actual**: 1 day (with zero code written)
+- **Speed multiplier**: **10-15x faster**
 
 ### Quality Metrics
 
-- <Icon name="Gauge" size={16} className="text-secondary" /> **Lighthouse**: 96/100
+- <Icon name="Gauge" size={16} className="text-secondary" /> **Lighthouse**: 96/100 (Performance:
+  100, Accessibility: 95, Best Practices: 100, SEO: 100)
 - <Icon name="Code" size={16} className="text-primary" /> **TypeScript**: Strict mode, full type
-  safety
+  safety, zero `any` types
 - <Icon name="Accessibility" size={16} className="text-primary" /> **Accessibility**: WCAG AA
-  compliant
-- <Icon name="Layers" size={16} className="text-primary" /> **Architecture**: Clean, maintainable,
-  scalable
+  compliant, keyboard navigation, ARIA labels
+- <Icon name="Layers" size={16} className="text-primary" /> **Architecture**: Clean component
+  hierarchy, maintainable patterns, scalable structure
 
-### Lines of Code Written
+### Lines of Code Generated
 
-- **By me**: 0 (only planning and direction)
-- **By AI**: ~15,000+ lines (components, styles, content, config)
-- **Human modifications**: 0
+- **By me**: 0 (only planning, direction, and orchestration)
+- **By AI**: ~15,000+ lines (components, styles, content, configuration)
+- **Human modifications**: 0 (constraint maintained throughout)
 
 ## The Learning Paradox
 
@@ -410,103 +772,171 @@ Accessibility compliance - Performance implications - Security vulnerabilities -
 
 Why? Because I spent my time:
 
-- <Icon name="BookOpen" size={16} className="text-primary" /> Reading and understanding AI-generated
-  patterns
-- <Icon name="GitBranch" size={16} className="text-primary" /> Analyzing architectural decisions
-- <Icon name="Lightbulb" size={16} className="text-primary" /> Discovering new approaches
-  (Repository Pattern, animation config patterns)
-- <Icon name="Users" size={16} className="text-primary" /> Reviewing production-quality code with
-  explanations
+- <Icon name="BookOpen" size={16} className="text-primary" /> **Reading and understanding**
+  AI-generated patterns and best practices
+- <Icon name="GitBranch" size={16} className="text-primary" /> **Analyzing architectural decisions**
+  and their trade-offs
+- <Icon name="Lightbulb" size={16} className="text-primary" /> **Discovering new approaches**
+  (Repository Pattern for content, GSAP hooks, MDX component registration)
+- <Icon name="Users" size={16} className="text-primary" /> **Reviewing production-quality code**
+  with detailed explanations and documentation
 
-**Traditional coding**: You write code → Maybe learn something new
-**AI-driven coding**: AI writes code → You review and learn constantly
+**Traditional coding**: You write code → Maybe learn something new (if you research first)
+
+**AI-driven coding**: AI writes code → You review and learn constantly (forced to understand every decision)
 
 ## My Recommendations for AI-Driven Development
 
-### 1. Start With a Plan
+### 1. Start With a Plan (Use Gemini for Research)
 
 <Comparison
-  wrong="Ask AI to build your app directly"
-  right="Create architecture first (use Gemini), then implement with Claude"
+  title="Development Approach"
+  wrong="Ask Claude to build your app directly without research"
+  right="Use Gemini (web) for design research and architecture, then implement with Claude Code"
 />
 
-### 2. Use Specialized Skills
+Spending time on planning before coding accelerates implementation and prevents rework:
+
+1. **Use Gemini (web)** for design research and architecture
+2. **Leverage web search** to analyze design trends and competitors
+3. **Synthesize patterns** into a comprehensive plan
+4. **Then implement** with Claude Code
+
+### 2. Use Specialized Skills (Not Generic AI)
 
 <Icon name="Award" size={16} className="text-primary" /> Don't use generic AI. Use skills that
-follow best practices: - frontend-design for UI - vercel-react-best-practices for Next.js
+follow industry best practices: - **frontend-design** for production-grade UI components -
+**vercel-react-best-practices** for Next.js optimization patterns
 
-### 3. Choose the Right Model
+Skills embed domain expertise that vanilla Claude lacks.
+
+### 3. Leverage MCPs for Context (Essential for Multi-Session Work)
+
+<Icon name="Database" size={16} className="text-primary" /> Use MCPs to enhance Claude's
+capabilities: - **Context7 MCP**: Fetch up-to-date documentation and code examples (`use context7`)
+- **Serena MCP**: Maintain context, ideas, and progress across conversations - **Sequential Thinking
+MCP**: Structured reasoning for complex architectural decisions
+
+Without MCPs, each session starts from zero and uses potentially outdated information. With MCPs, Claude has current documentation and remembers your project context.
+
+### 4. Choose the Right Model (Cost vs Capability)
 
 <Icon name="Cpu" size={16} className="text-secondary" /> Not every task needs the most powerful
-model: - **Planning & Architecture**: Opus or Gemini - **Implementation**: Sonnet - **Simple
-edits**: Haiku
+model: - **Planning & Research**: Gemini (web search) or Claude Opus - **Implementation**: Claude
+Sonnet 4.5 (with skills and MCPs) - **Simple edits**: Claude Haiku 4.5 (types, config, simple
+components)
 
-### 4. Iterate Transparently
+**Rule**: Use the smallest model that can accomplish the task with proper context and skills.
+
+### 5. Iterate Transparently (Specific Feedback)
 
 <Comparison
-  wrong="'This doesn't look right' [gives up]"
-  right="'The spacing feels off. Let's increase the gap between cards and reduce padding.'"
+  title="Feedback Quality"
+  wrong="This doesn't look right [gives up or manually fixes]"
+  right="The spacing feels off. Increase gap-4 to gap-6 (24px) between cards and reduce p-6 to p-4 (16px)"
 />
 
-### 5. Maintain Context
-
-<Icon name="Database" size={16} className="text-primary" /> Use MCPs like Serena and Context 7 to
-maintain project awareness across sessions.
+Be precise about measurements, class names, and desired outcomes. Specific, actionable feedback teaches AI what you want **and** improves your own design articulation skills.
 
 ## The Future of Development
 
 This portfolio proves AI can:
 
-- <Icon name="Check" size={16} className="text-secondary" /> Design system architecture
-- <Icon name="Check" size={16} className="text-secondary" /> Implement complex features
+- <Icon name="Check" size={16} className="text-secondary" /> Design system architecture (with web
+  research)
+- <Icon name="Check" size={16} className="text-secondary" /> Implement complex features (animations,
+  MDX pipeline, dynamic routing)
 - <Icon name="Check" size={16} className="text-secondary" /> Write production-quality code
-- <Icon name="Check" size={16} className="text-secondary" /> Create comprehensive content
-- <Icon name="Check" size={16} className="text-secondary" /> Optimize for performance
+  (TypeScript, accessibility, performance)
+- <Icon name="Check" size={16} className="text-secondary" /> Create comprehensive content (technical
+  writing, narratives)
+- <Icon name="Check" size={16} className="text-secondary" /> Optimize for performance (Lighthouse
+  96/100)
 
 But it still needs:
 
-- <Icon name="User" size={16} className="text-primary" /> Human judgment for aesthetics
-- <Icon name="Eye" size={16} className="text-primary" /> Human oversight for correctness
-- <Icon name="Compass" size={16} className="text-primary" /> Human direction for priorities
+- <Icon name="User" size={16} className="text-primary" /> **Human judgment** for aesthetics and
+  branding
+- <Icon name="Eye" size={16} className="text-primary" /> **Human oversight** for correctness and
+  security
+- <Icon name="Compass" size={16} className="text-primary" /> **Human direction** for priorities and
+  strategy
+- <Icon name="Brain" size={16} className="text-primary" /> **Human orchestration** of tools, MCPs,
+  and skills
 
 **The future isn't AI replacing developers.**
 
-The future is developers **with AI moving 5-10x faster** while learning more and building better systems.
+The future is developers **with AI moving 5-10x faster** while learning more, building better systems, and focusing on what humans do best: strategy, creativity, and judgment.
+
+## Resources
+
+### AI Tools Used
+
+- **[Claude Code CLI](https://claude.ai/download)** - AI-powered development environment with MCP support
+- **[Google Gemini](https://gemini.google.com)** - Design brainstorming and web research (used website, not CLI)
+
+### Model Context Protocol (MCP) Servers
+
+- **[Context7](https://github.com/upstash/context7)** - Fetches up-to-date, version-specific documentation and code examples straight from the source
+- **[Serena](https://github.com/oraios/serena)** - Maintains context, ideas, concepts, and progress across multiple Claude Code conversations
+- **[Sequential Thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking)** - Structured problem-solving framework for complex architectural decisions
+
+### Claude Skills
+
+- **[Frontend Design](https://skills.sh/anthropics/skills/frontend-design)** - Production-grade UI component generation with accessibility and responsive design
+- **[Vercel React Best Practices](https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices)** - Next.js optimization patterns, code splitting, and performance best practices
+
+### Technical Stack
+
+- **[Next.js 16](https://nextjs.org/)** - React framework with App Router, server components, and metadata API
+- **[Tailwind CSS v4](https://tailwindcss.com/)** - Utility-first CSS framework with custom design tokens
+- **[GSAP 3.12](https://greensock.com/gsap/)** - Animation library with ScrollTrigger for scroll-driven interactions
+- **[MDX](https://mdxjs.com/)** - Markdown with JSX components for rich content
+- **[next-mdx-remote](https://github.com/hashicorp/next-mdx-remote)** - Runtime MDX processing with custom component registration
+- **[Vercel](https://vercel.com/)** - Deployment platform with Edge CDN and automatic optimizations
+
+### Design Inspiration
+
+- **[Neo-Brutalism in Web Design](https://brutalistwebsites.com/)** - Brutalist web design collection and examples
+- **[Neubrutalism UI](https://www.neubrutalism.dev/)** - Neo-Brutalist design system patterns and components
+
+### Source Code
+
+- **[Portfolio Repository](https://github.com/Codestz/portfolio)** - Full source code of this AI-built portfolio (every component, animation, and line of AI-generated code)
 
 ## Technical Stack
 
 What AI built with zero human code modifications:
 
 - **Framework**: Next.js 16 (App Router) + React 19
-- **Language**: TypeScript (strict mode)
+- **Language**: TypeScript (strict mode, zero `any` types)
 - **Styling**: Tailwind CSS v4 with custom Neo-Brutalist design system
-- **Animation**: GSAP 3.12 with ScrollTrigger + custom hooks
-- **Content**: MDX with next-mdx-remote
-- **Deployment**: Vercel with Edge CDN
+- **Animation**: GSAP 3.12 with ScrollTrigger + custom React hooks
+- **Content**: MDX with next-mdx-remote and custom component registration
+- **Deployment**: Vercel with Edge CDN, automatic image optimization, and route caching
 
 **Development Tools**:
 
-- Claude Code (CLI) - Main implementation tool
-- Google Gemini - Architecture and design
-- AI Skills - Industry best practices
-- Sequential Thinking - Complex problem solving
-- MCPs (Serena + Context 7) - Enhanced context
+- **Claude Code (CLI)** with Claude Sonnet 4.5 & Haiku 4.5 - Main implementation tool
+- **Google Gemini (Website)** - Design research, architecture, and web-based brainstorming
+- **AI Skills** - frontend-design, vercel-react-best-practices
+- **MCPs** - Context7 (memory), Serena (patterns), Sequential Thinking (reasoning)
 
 ## Open Source
 
 This entire portfolio is open source. Every component, every animation, every line of AI-generated code is available for you to study:
 
-**[GitHub Repository](https://github.com/estebanestrada/portfolio)**
+**[GitHub Repository](https://github.com/Codestz/portfolio)**
 
-Clone it, explore it, learn from it. See what's possible when you trust AI with proper direction.
+Clone it, explore it, learn from it. See what's possible when you trust AI with proper direction, specialized skills, and context-aware MCPs.
 
 ## Conclusion
 
 After 3 years of AI-assisted development, I've learned:
 
-- **2023**: AI helps me write code faster
-- **2024**: AI helps me write better code
-- **2026**: AI writes all the code—I orchestrate
+- **2023**: AI helps me write code faster (GitHub Copilot autocomplete)
+- **2024**: AI helps me write better code (ChatGPT architecture advice)
+- **2026**: AI writes all the code—I orchestrate (Claude Code + MCPs + Skills)
 
 The shift from **assistant to driver** is profound. Instead of:
 
@@ -528,13 +958,23 @@ I now ask:
 
 That's the unlock. That's the future.
 
-And you don't need Opus. You need a good plan, the right skills, and the discipline to orchestrate instead of code.
+And you don't need Opus. You need:
+
+- **A good plan** (Gemini for research)
+- **The right skills** (frontend-design, vercel-react-best-practices)
+- **Context-aware tools** (Context7, Serena, Sequential Thinking MCPs)
+- **The discipline to orchestrate** instead of code
 
 ---
 
-- **Timeline**: 3-4 days from concept to deployment
+**Final Stats:**
+
+- **Timeline**: 1 day from concept to deployment
 - **Human code written**: 0 lines
 - **AI-generated code**: 15,000+ lines
-- **Quality**: Production-ready
+- **Quality**: Production-ready (Lighthouse 96/100)
+- **Models used**: Claude Sonnet 4.5, Claude Haiku 4.5, Google Gemini (Website)
+- **MCPs leveraged**: Context7 (documentation), Serena (cross-conversation context), Sequential Thinking (structured reasoning)
+- **Skills used**: Frontend Design, Vercel React Best Practices
 
-**Built with** <Icon name="Bot" size={16} className="text-primary" /> **AI orchestration** and <Icon name="Coffee" size={16} className="text-primary" /> **strategic planning.**
+**Built with** <Icon name="Bot" size={16} className="text-primary" /> **AI orchestration**, <Icon name="Database" size={16} className="text-primary" /> **MCP-powered context**, and <Icon name="Coffee" size={16} className="text-primary" /> **strategic planning.**
