@@ -1,0 +1,190 @@
+---
+title: "Full Stack Developer at Kualty"
+description: "Built Thr1ft, a mission-based second-hand marketplace with mobile app, PWA admin panel, and Shopify integration"
+publishedAt: "2022-10-01"
+current: false
+category: "mobile"
+tags: ["react-native", "pwa", "react", "typescript", "shopify"]
+featured: true
+type: 'experience'
+author: "Esteban Estrada"
+thumbnail: "/images/projects/kualty-marketplace.jpg"
+---
+
+# Full Stack Developer at Kualty
+
+At Kualty, I worked on **Thr1ft**, a unique second-hand marketplace platform with a mission-based shopping experience. The product consisted of three interconnected systems: a mobile application for customers, a PWA for store owners and administrators, and a Shopify integration.
+
+## Experience Overview
+
+- **Company**: Kualty
+- **Role**: Full Stack Developer
+- **Timeline**: October 2022 - December 2023 (1 year 3 months)
+- **Location**: Colombia
+- **Product**: Thr1ft (Mission-based second-hand marketplace)
+- **Tech Stack**: React, React Native, TypeScript, Shopify API, Node.js, PostgreSQL
+
+## About the Product - Thr1ft
+
+Thr1ft was a second-hand marketplace with a unique twist: **mission-based shopping**. Unlike traditional e-commerce, the platform operated on a time-based system where shopping missions started on specific days (typically weekends), and the app was only open during these mission windows.
+
+### The Three-Part System
+
+**1. Mobile Application (React Native)**
+- Customer-facing app for purchasing second-hand products
+- **One stock per product** - First user to purchase wins
+- **Mission-based access** - App only opens during active missions
+- Real-time inventory updates to show product availability
+- Fast checkout process optimized for competition-style shopping
+
+**2. Progressive Web App (PWA)**
+- Admin and store owner dashboard
+- Product management and inventory control
+- Mission scheduling and control panel
+- Customer management and support tools
+- Order review and fulfillment tracking
+- Analytics and reporting
+
+**3. Shopify Integration**
+- Connected Shopify stores to Thr1ft platform
+- Automated product sync from Shopify → PWA → Mobile app
+- Order management across platforms
+- Inventory synchronization
+- Unified dashboard for Shopify merchants
+
+## Key Responsibilities
+
+### Mobile App Development
+- Built React Native application for iOS and Android
+- Implemented **real-time product availability** system (critical for one-stock items)
+- Created **mission timer** UI showing when next mission starts
+- Developed **fast checkout flow** to handle high-demand purchasing
+- Optimized for speed - milliseconds mattered when competing for products
+- Implemented push notifications for mission starts and product alerts
+
+### PWA Admin Panel
+- Developed responsive admin dashboard using React
+- Built **mission control system** for scheduling and managing shopping windows
+- Created product management interface with bulk upload capabilities
+- Implemented order management and customer support tools
+- Built analytics dashboard for tracking mission performance
+- Designed role-based access control for different admin levels
+
+### Shopify Integration
+- Integrated Shopify API for product synchronization
+- Built middleware to transform Shopify products for Thr1ft format
+- Implemented webhook handlers for real-time inventory updates
+- Created OAuth flow for merchant onboarding
+- Developed sync engine to handle product updates and conflicts
+- Built admin interface for managing connected Shopify stores
+
+### Mission-Based System
+- Designed and implemented time-gated access system
+- Built scheduling engine for mission start/end times
+- Created countdown timers and real-time status updates
+- Implemented queue system for high-traffic mission starts
+- Optimized database queries for concurrent user access during missions
+
+## Key Challenges & Solutions
+
+### Challenge 1: Race Conditions on Single-Stock Items
+**Problem**: Multiple users attempting to purchase the same item simultaneously (only 1 stock available).
+
+**Solution**:
+- Implemented optimistic locking at database level
+- Added transaction handling with rollback on conflicts
+- Created real-time inventory updates via WebSockets
+- Built UI feedback for "item no longer available" scenarios
+- Implemented cart expiration (15-second hold) to prevent abandoned carts blocking inventory
+
+### Challenge 2: High Traffic During Mission Starts
+**Problem**: Hundreds of users accessing the app simultaneously when missions opened, causing server strain.
+
+**Solution**:
+- Implemented queue system for mission entry
+- Used Redis for session management and caching
+- Optimized database queries with proper indexing
+- Added CDN for static assets
+- Implemented progressive loading for product lists
+- Created load testing scenarios to prepare for peak traffic
+
+### Challenge 3: Shopify Sync Reliability
+**Problem**: Ensuring Shopify inventory stayed in sync with Thr1ft without conflicts or delays.
+
+**Solution**:
+- Built webhook retry mechanism with exponential backoff
+- Implemented conflict resolution rules (Shopify as source of truth)
+- Created sync status dashboard for merchants
+- Added manual sync trigger for troubleshooting
+- Logged all sync operations for debugging
+
+### Challenge 4: Time Zone Management
+**Problem**: Missions needed to start at correct local times for different regions.
+
+**Solution**:
+- Stored all times in UTC, converted on client
+- Added timezone configuration per mission
+- Built preview system to verify mission times
+- Created automated tests for timezone edge cases
+
+## Skills Developed
+
+**Technical Skills**:
+- React Native mobile development
+- Progressive Web App architecture
+- Shopify API integration and OAuth
+- Real-time systems with WebSockets
+- Race condition handling and optimistic locking
+- High-traffic system optimization
+
+**E-commerce Domain**:
+- Inventory management systems
+- Payment processing and checkout flows
+- Mission/time-based product releases
+- Multi-tenant architecture (Shopify merchants)
+
+**Soft Skills**:
+- Working under time pressure (fast-paced product launches)
+- Cross-functional collaboration with product and design teams
+- Problem-solving for unique business models
+- Debugging production issues in real-time during missions
+
+## Impact & Results
+
+### Performance Metrics
+- **Mobile App**: Smooth performance during high-traffic missions (500+ concurrent users)
+- **PWA**: Fast admin operations with sub-second response times
+- **Shopify Sync**: 99.8% sync success rate with automatic retry on failures
+
+### User Experience Wins
+- **Fast checkout**: Average purchase time under 10 seconds
+- **Real-time updates**: Inventory changes reflected instantly
+- **Mission reliability**: Missions started on time with queue system handling traffic spikes
+- **Cross-platform sync**: Shopify → Thr1ft sync completed within 2 minutes
+
+## Technical Highlights
+
+**Architecture**:
+- Monorepo structure with shared TypeScript types
+- REST API with WebSocket support for real-time features
+- PostgreSQL with optimistic locking for inventory
+- Redis for caching and session management
+- Queue system (Bull) for background jobs
+
+**Mission System**:
+- Cron-based scheduler for mission activation
+- State machine for mission lifecycle (upcoming → active → ended)
+- Real-time countdown synchronized across all clients
+- Grace period handling for late checkouts
+
+**Shopify Integration**:
+- OAuth 2.0 for merchant authentication
+- Webhook subscriptions for real-time updates
+- Bulk import API for initial product sync
+- Rate limiting compliance with Shopify API
+
+This role taught me how to build systems that handle time-critical operations, manage race conditions in high-traffic scenarios, and integrate with third-party platforms like Shopify.
+
+---
+
+**Key Takeaway**: Working on Thr1ft taught me how to build time-gated, high-competition e-commerce systems where performance and reliability are critical to the user experience.

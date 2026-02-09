@@ -1,0 +1,1 @@
+export { CodeGardenHero } from './CodeGardenHero';

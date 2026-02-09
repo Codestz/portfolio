@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+/* =================================================================
+   NEO-BRUTALIST DESIGN SYSTEM
+   A comprehensive, normalized design system for light/dark modes
+   ================================================================= */
+
+@theme {
+  /* Typography */
+  --font-syne: var(--font-syne);
+  --font-space-mono: var(--font-space-mono);
+
+  --font-family-sans: var(--font-syne), system-ui, sans-serif;
+  --font-family-mono: var(--font-space-mono), 'Courier New', monospace;
+  --font-family-heading: var(--font-syne), system-ui, sans-serif;
+
+  /* Brand Colors */
+  --color-primary: #7C3AED;
+  --color-secondary-static: #00FF41;  /* For reference */
+  --color-accent-1: #FF006B;
+  --color-accent-2: #00E5CC;
+
+  /* Terminal Colors */
+  --color-terminal-cyan: #00E5CC;
+  --color-terminal-yellow: #FFFF00;
+  --color-terminal-green: #00FF41;
+  --color-terminal-purple: #7C3AED;
+  --color-terminal-pink: #FF006B;
+  --color-terminal-bg: #0A0A0A;
+  --color-terminal-gray: #6B6B6B;
+
+  /* Dynamic colors - defined in :root and .dark below */
+  --color-secondary: var(--secondary-bg);
+  --color-secondary-text: var(--secondary-fg);
+  --color-bg-main: var(--bg-main);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-foreground: var(--text-main);
+  --color-muted: var(--text-muted);
+  --color-border: var(--border-color);
+  --color-shadow: var(--shadow-color);
+}
+
+:root {
+  /* Light Mode Colors */
+  --secondary-bg: #00FF41;      /* Neo-Brutalist Green */
+  --secondary-fg: #0A0A0A;      /* Black text on green */
+  --bg-main: #F5F3EE;
+  --bg-elevated: #FFFFFF;
+  --text-main: #0A0A0A;
+  --text-muted: #6B6B6B;
+  --border-color: #0A0A0A;
+  --shadow-color: #0A0A0A;
+
+  /* Neo-Brutalist Design Tokens */
+  --border-width: 3px;
+  --border-radius: 0px;
+
+  /* Shadow System */
+  --shadow-sm: 2px 2px 0px 0px var(--color-shadow);
+  --shadow-md: 4px 4px 0px 0px var(--color-shadow);
+  --shadow-lg: 6px 6px 0px 0px var(--color-shadow);
+  --shadow-xl: 8px 8px 0px 0px var(--color-shadow);
+  --brutal-shadow: var(--shadow-xl);
+
+  /* Spacing Scale - Based on 8px grid */
+  --spacing-xs: 0.5rem;   /* 8px */
+  --spacing-sm: 1rem;     /* 16px */
+  --spacing-md: 1.5rem;   /* 24px */
+  --spacing-lg: 2rem;     /* 32px */
+  --spacing-xl: 3rem;     /* 48px */
+  --spacing-2xl: 4rem;    /* 64px */
+
+  /* Typography Scale */
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-base: 1rem;    /* 16px */
+  --font-size-lg: 1.125rem;  /* 18px */
+  --font-size-xl: 1.25rem;   /* 20px */
+  --font-size-2xl: 1.5rem;   /* 24px */
+  --font-size-3xl: 2rem;     /* 32px */
+  --font-size-4xl: 2.5rem;   /* 40px */
+
+  /* Transitions */
+  --transition-fast: 100ms ease-in-out;
+  --transition-normal: 200ms ease-in-out;
+  --transition-slow: 300ms ease-in-out;
+}
+
+/* Dark Mode Overrides */
+.dark {
+  /* Dark Mode Colors */
+  --secondary-bg: #00E5CC;      /* Cyan in dark mode */
+  --secondary-fg: #0A0A0A;      /* Black text on cyan */
+  --bg-main: #0F0F0F;
+  --bg-elevated: #1A1A1A;
+  --text-main: #F8F8F7;
+  --text-muted: #A0A0A0;
+  --border-color: #F8F8F7;
+  --shadow-color: #F8F8F7;
+}
+
+body {
+  background-color: var(--color-bg-main);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Utilities */
+.font-heading {
+  font-family: var(--font-family-heading);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

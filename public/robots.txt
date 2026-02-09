@@ -1,0 +1,10 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://estebanestrada.dev/sitemap.xml
+
+# Disallow private paths (if any)
+# Disallow: /api/
+# Disallow: /admin/

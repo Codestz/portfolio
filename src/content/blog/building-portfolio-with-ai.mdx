@@ -1,0 +1,520 @@
+---
+title: "Building a Complete Portfolio Using Only AI: Zero Human Code"
+description: "How I leveraged Claude Code, Gemini, and AI-driven development to build a production-ready portfolio from scratch with zero human code modifications—only planning"
+publishedAt: "2026-02-08"
+category: "ai"
+tags: ["ai", "claude", "gemini", "portfolio", "nextjs", "development-workflow"]
+featured: true
+type: "experiment"
+author: "Esteban Estrada"
+thumbnail: "/images/blog/building-portfolio-with-ai.jpg"
+---
+
+# Building a Complete Portfolio Using Only AI: Zero Human Code
+
+In February 2026, I achieved something unprecedented in my 3 years of AI-assisted development: I built my entire portfolio—design, architecture, code, content, and deployment—using AI with **zero human code modifications**. Only planning.
+
+Not AI-assisted development. **AI-driven development with human orchestration.**
+
+## The Unprecedented Constraint
+
+After 3 years working with AI tools like GitHub Copilot, ChatGPT, and Claude, I've always written or modified AI-generated code. This time, I set a different challenge:
+
+- <Icon name="Target" size={18} className="text-primary" /> **Zero lines of human-written code**
+- <Icon name="CheckCircle" size={18} className="text-secondary" /> **AI generates everything**
+- <Icon name="Brain" size={18} className="text-primary" /> **Human only provides direction and planning**
+
+**Result**: A production-ready portfolio with 96/100 Lighthouse score, advanced animations, 3D scenes, and comprehensive content—built in 3-4 days.
+
+## My Three-Phase Development Pattern
+
+### Phase 1: Brainstorming (Gemini)
+
+I started with **Google Gemini** to design the system architecture and visual identity.
+
+<Terminal
+  title="Gemini Design Session"
+  lines={[
+    {
+      type: 'input',
+      prompt: 'gemini>',
+      content: 'I need a portfolio that doubles as a technical blog. The design should be Neo-Brutalist—bold, geometric, high contrast. Help me define the design system and architecture.'
+    },
+    {
+      type: 'output',
+      content: 'Analyzing requirements for Neo-Brutalist Code Garden...\nGenerating comprehensive design system...'
+    },
+    {
+      type: 'success',
+      content: 'Generated complete design system'
+    },
+    {
+      type: 'success',
+      content: 'Defined color palette and typography'
+    },
+    {
+      type: 'success',
+      content: 'Created component hierarchy'
+    },
+    {
+      type: 'success',
+      content: 'Planned animation strategy'
+    },
+    {
+      type: 'success',
+      content: 'Documented technical stack'
+    }
+  ]}
+/>
+
+**What Gemini produced**:
+- Complete design system (colors, typography, spacing)
+- Neo-Brutalist principles and guidelines
+- Component architecture (primitives → sections → layouts)
+- Animation strategy (GSAP + React Three Fiber)
+- Technical stack recommendations
+- **EXECUTION_PLAN.md** - The blueprint for everything
+
+**Key insight**: Gemini excels at system-level thinking and architectural design. It created harmony between portfolio and blog aesthetics.
+
+### Phase 2: Planning (Claude Code)
+
+I moved Gemini's `EXECUTION_PLAN.md` to Claude Code for refinement and implementation planning.
+
+<Terminal
+  title="Claude Code Planning"
+  lines={[
+    {
+      type: 'input',
+      prompt: 'claude>',
+      content: 'Read EXECUTION_PLAN.md and the ARCHITECTURE.md. Create a detailed implementation plan with file structure, dependencies, and execution order.'
+    },
+    {
+      type: 'output',
+      content: 'Reading EXECUTION_PLAN.md...\nReading ARCHITECTURE.md...\nAnalyzing architecture...'
+    },
+    {
+      type: 'success',
+      content: 'File structure defined'
+    },
+    {
+      type: 'success',
+      content: 'Dependencies identified'
+    },
+    {
+      type: 'success',
+      content: 'Implementation phases created'
+    },
+    {
+      type: 'success',
+      content: 'Component patterns established'
+    }
+  ]}
+/>
+
+**Claude Code's strengths**:
+- Translated architectural vision into actionable tasks
+- Proposed implementation order (foundation first)
+- Identified potential issues early
+- Created consistent patterns across codebase
+
+### Phase 3: Execution (Claude Code)
+
+With plans in place, I directed Claude Code to implement everything.
+
+<Terminal
+  title="Implementation Session"
+  lines={[
+    {
+      type: 'input',
+      prompt: '$',
+      content: 'claude'
+    },
+    {
+      type: 'output',
+      content: 'Claude Code CLI initialized'
+    },
+    {
+      type: 'input',
+      prompt: 'claude>',
+      content: 'Following the plan, create the design system. Start with Tailwind config and CSS variables for the Neo-Brutalist theme.'
+    },
+    {
+      type: 'output',
+      content: 'Creating design system with thick borders, heavy shadows, and bold colors...'
+    },
+    {
+      type: 'success',
+      content: 'tailwind.config.ts updated'
+    },
+    {
+      type: 'success',
+      content: 'globals.css with CSS variables'
+    },
+    {
+      type: 'success',
+      content: 'Color palette implemented'
+    },
+    {
+      type: 'success',
+      content: 'Typography scale defined'
+    }
+  ]}
+/>
+
+**The power of zero-code constraint**: When you can't fix AI's output manually, you learn to give better instructions.
+
+## The Secret Weapons: AI Skills
+
+I didn't use generic Claude. I used **specialized AI skills** that follow industry best practices:
+
+### 1. Frontend Design Skill
+```
+https://skills.sh/anthropics/skills/frontend-design
+```
+
+<Comparison
+  wrong="Me: 'Create a hero section'"
+  right="Me: 'Using the frontend-design skill, create a hero section following our Neo-Brutalist design system'"
+/>
+
+**Impact**: Generated production-grade components with proper accessibility, responsive design, and visual polish—not generic Bootstrap clones.
+
+### 2. Vercel React Best Practices
+```
+https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices
+```
+
+<Comparison
+  wrong="import * as components from '@/components'"
+  right="import { Button } from '@/components/ui/Button'"
+/>
+
+**Impact**: Avoided barrel file imports, used direct imports, implemented proper code splitting, and followed Next.js optimization patterns.
+
+### Model Context Protocol (MCP)
+
+I used two MCPs to enhance Claude Code:
+
+**Serena MCP**: Project-aware context
+- Understands project structure and patterns
+- Maintains consistency across files
+- Suggests improvements based on existing code
+
+**Context 7 MCP**: Enhanced memory
+- Remembers decisions across sessions
+- Tracks architectural choices
+- Prevents contradictory implementations
+
+<Icon name="Info" size={16} className="text-primary" /> *I'll write a detailed post about combining these MCPs—stay tuned.*
+
+## Model Strategy: Sonnet + Haiku, No Opus
+
+<Icon name="Sparkles" size={18} className="text-secondary" /> **Key decision**: I never used Opus. Only Sonnet and Haiku.
+
+**Why?**
+
+<Comparison
+  wrong="Use Opus for everything (expensive, slow)"
+  right="Use Sonnet for implementation, Haiku for simple tasks"
+/>
+
+**My model selection strategy**:
+
+- **Sonnet (Claude 3.5)**: Component implementation, complex logic, architecture decisions
+- **Haiku (Claude 3.5)**: File operations, simple edits, repetitive tasks
+- **Gemini**: Initial design and system architecture
+
+**Result**:
+- <Icon name="TrendingDown" size={16} className="text-primary" /> **Lower cost** (Sonnet is cheaper than Opus)
+- <Icon name="Zap" size={16} className="text-primary" /> **Faster responses** (Sonnet is quicker than Opus)
+- <Icon name="Target" size={16} className="text-primary" /> **Same quality** (with proper planning and skills)
+
+**The secret**: Well-structured plans eliminate the need for the "smartest" model. Sonnet with good direction outperforms Opus with vague prompts.
+
+## The Iterative Workflow
+
+Here's a typical development session:
+
+<Terminal
+  title="Feature Implementation Flow"
+  lines={[
+    {
+      type: 'comment',
+      content: 'Step 1: Exploration'
+    },
+    {
+      type: 'input',
+      prompt: 'claude>',
+      content: 'Explore the components folder and tell me what patterns we\'re using'
+    },
+    {
+      type: 'output',
+      content: 'Reading components/ui/primitives...\nAnalyzing patterns...'
+    },
+    {
+      type: 'output',
+      content: 'Found primitives pattern: Button, Card, Badge, NavLink\nConsistent TypeScript types and index exports\nNeo-Brutalist styling with thick borders and shadows'
+    },
+    {
+      type: 'divider',
+      content: ''
+    },
+    {
+      type: 'comment',
+      content: 'Step 2: Implementation'
+    },
+    {
+      type: 'input',
+      prompt: 'claude>',
+      content: 'Create a FilterBar component following the same pattern'
+    },
+    {
+      type: 'output',
+      content: 'Creating FilterBar with TypeScript types and Neo-Brutalist styling...'
+    },
+    {
+      type: 'success',
+      content: 'FilterBar.tsx created'
+    },
+    {
+      type: 'success',
+      content: 'FilterBar.types.ts created'
+    },
+    {
+      type: 'success',
+      content: 'index.ts created'
+    },
+    {
+      type: 'success',
+      content: 'Added to sections/index.ts'
+    },
+    {
+      type: 'divider',
+      content: ''
+    },
+    {
+      type: 'comment',
+      content: 'Step 3: Refinement'
+    },
+    {
+      type: 'input',
+      prompt: 'claude>',
+      content: 'The spacing doesn\'t match our design system'
+    },
+    {
+      type: 'output',
+      content: 'Analyzing design system spacing tokens...\nUpdating FilterBar spacing...'
+    },
+    {
+      type: 'success',
+      content: 'Spacing updated to match design system'
+    }
+  ]}
+/>
+
+**Pattern**: Explore → Implement → Refine → Verify
+
+## What AI Excelled At
+
+### 1. Design System Implementation
+
+<Icon name="Palette" size={16} className="text-primary" /> Created complete design system with:
+- CSS variables for theming
+- Tailwind configuration
+- Consistent spacing and typography scales
+- Color palette with semantic naming
+
+### 2. Component Architecture
+
+<Icon name="Package" size={16} className="text-primary" /> Built modular component hierarchy:
+```
+/components
+  /ui/primitives     - Button, Card, Badge, etc.
+  /sections          - Hero, TechStack, FilterBar
+  /layout            - Header, Footer, Navigation
+```
+
+### 3. Advanced Features
+
+<Icon name="Sparkles" size={16} className="text-secondary" /> Implemented complex functionality:
+- GSAP scroll animations with custom hooks
+- MDX content pipeline with type safety
+
+### 4. Content Generation
+
+<Icon name="FileText" size={16} className="text-primary" /> Created comprehensive content:
+- 5+ technical blog posts with code examples
+- 4 experience pages with professional narratives
+- About page with storytelling
+- All with proper structure and SEO metadata
+
+## What Required Human Guidance
+
+### 1. Aesthetic Judgment
+
+AI can implement design systems but needs guidance on "what looks good."
+
+<Comparison
+  wrong="AI: 'Applied padding and spacing'"
+  right="Me: 'Increase gap between cards to 24px, reduce internal padding to 16px'"
+/>
+
+### 2. Strategic Direction
+
+<Icon name="Map" size={16} className="text-primary" /> Deciding **what to build and why** remains human responsibility.
+
+### 3. Quality Gates
+
+<Icon name="Shield" size={16} className="text-primary" /> Reviewing generated code for:
+- Accessibility compliance
+- Performance implications
+- Security vulnerabilities
+- Edge cases
+
+## Results That Speak
+
+### Development Velocity
+
+- **Traditional estimate**: 2-3 weeks
+- **AI-driven actual**: 3-4 days
+- **Speed multiplier**: **5-7x faster**
+
+### Quality Metrics
+
+- <Icon name="Gauge" size={16} className="text-secondary" /> **Lighthouse**: 96/100
+- <Icon name="Code" size={16} className="text-primary" /> **TypeScript**: Strict mode, full type safety
+- <Icon name="Accessibility" size={16} className="text-primary" /> **Accessibility**: WCAG AA compliant
+- <Icon name="Layers" size={16} className="text-primary" /> **Architecture**: Clean, maintainable, scalable
+
+### Lines of Code Written
+
+- **By me**: 0 (only planning and direction)
+- **By AI**: ~15,000+ lines (components, styles, content, config)
+- **Human modifications**: 0
+
+## The Learning Paradox
+
+**Counterintuitive finding**: I learned MORE by not writing code.
+
+Why? Because I spent my time:
+- <Icon name="BookOpen" size={16} className="text-primary" /> Reading and understanding AI-generated patterns
+- <Icon name="GitBranch" size={16} className="text-primary" /> Analyzing architectural decisions
+- <Icon name="Lightbulb" size={16} className="text-primary" /> Discovering new approaches (Repository Pattern, animation config patterns)
+- <Icon name="Users" size={16} className="text-primary" /> Reviewing production-quality code with explanations
+
+**Traditional coding**: You write code → Maybe learn something new
+**AI-driven coding**: AI writes code → You review and learn constantly
+
+## My Recommendations for AI-Driven Development
+
+### 1. Start With a Plan
+
+<Comparison
+  wrong="Ask AI to build your app directly"
+  right="Create architecture first (use Gemini), then implement with Claude"
+/>
+
+### 2. Use Specialized Skills
+
+<Icon name="Award" size={16} className="text-primary" /> Don't use generic AI. Use skills that follow best practices:
+- frontend-design for UI
+- vercel-react-best-practices for Next.js
+- remotion-best-practices for video
+
+### 3. Choose the Right Model
+
+<Icon name="Cpu" size={16} className="text-secondary" /> Not every task needs the most powerful model:
+- **Planning & Architecture**: Opus or Gemini
+- **Implementation**: Sonnet
+- **Simple edits**: Haiku
+
+### 4. Iterate Transparently
+
+<Comparison
+  wrong="'This doesn't look right' [gives up]"
+  right="'The spacing feels off. Let's increase the gap between cards and reduce padding.'"
+/>
+
+### 5. Maintain Context
+
+<Icon name="Database" size={16} className="text-primary" /> Use MCPs like Serena and Context 7 to maintain project awareness across sessions.
+
+## The Future of Development
+
+This portfolio proves AI can:
+- <Icon name="Check" size={16} className="text-secondary" /> Design system architecture
+- <Icon name="Check" size={16} className="text-secondary" /> Implement complex features
+- <Icon name="Check" size={16} className="text-secondary" /> Write production-quality code
+- <Icon name="Check" size={16} className="text-secondary" /> Create comprehensive content
+- <Icon name="Check" size={16} className="text-secondary" /> Optimize for performance
+
+But it still needs:
+- <Icon name="User" size={16} className="text-primary" /> Human judgment for aesthetics
+- <Icon name="Eye" size={16} className="text-primary" /> Human oversight for correctness
+- <Icon name="Compass" size={16} className="text-primary" /> Human direction for priorities
+
+**The future isn't AI replacing developers.**
+
+The future is developers **with AI moving 5-10x faster** while learning more and building better systems.
+
+## Technical Stack
+
+What AI built with zero human code modifications:
+
+- **Framework**: Next.js 16 (App Router) + React 19
+- **Language**: TypeScript (strict mode)
+- **Styling**: Tailwind CSS v4 with custom Neo-Brutalist design system
+- **Animation**: GSAP 3.12 with ScrollTrigger + custom hooks
+- **Content**: MDX with next-mdx-remote
+- **Deployment**: Vercel with Edge CDN
+
+**Development Tools**:
+- Claude Code (CLI) - Main implementation tool
+- Google Gemini - Architecture and design
+- AI Skills - Industry best practices
+- Sequential Thinking - Complex problem solving
+- MCPs (Serena + Context 7) - Enhanced context
+
+## Open Source
+
+This entire portfolio is open source. Every component, every animation, every line of AI-generated code is available for you to study:
+
+**[GitHub Repository](https://github.com/estebanestrada/portfolio)**
+
+Clone it, explore it, learn from it. See what's possible when you trust AI with proper direction.
+
+## Conclusion
+
+After 3 years of AI-assisted development, I've learned:
+
+- **2023**: AI helps me write code faster
+- **2024**: AI helps me write better code
+- **2026**: AI writes all the code—I orchestrate
+
+The shift from **assistant to driver** is profound. Instead of:
+- "How do I implement this animation?"
+
+I now ask:
+- "What's the right animation strategy for my users?"
+
+Instead of:
+- "How do I structure these components?"
+
+I now ask:
+- "What architecture will scale for 50+ blog posts?"
+
+**AI handles the "how." You focus on the "what" and "why."**
+
+That's the unlock. That's the future.
+
+And you don't need Opus. You need a good plan, the right skills, and the discipline to orchestrate instead of code.
+
+---
+
+- **Timeline**: 3-4 days from concept to deployment
+- **Human code written**: 0 lines
+- **AI-generated code**: 15,000+ lines
+- **Quality**: Production-ready
+
+**Built with** <Icon name="Bot" size={16} className="text-primary" /> **AI orchestration** and <Icon name="Coffee" size={16} className="text-primary" /> **strategic planning.**

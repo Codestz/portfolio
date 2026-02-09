@@ -1,0 +1,114 @@
+# SERENA Project Configuration for Neo-Brutalist Portfolio
+# Enables symbolic code operations and memory generation
+
+# Project metadata
+name: neo-brutalist-portfolio
+description: Senior-level portfolio showcasing SOLID principles, design patterns, and clean architecture
+
+# Language configuration for symbolic code understanding
+languages:
+  - typescript
+  - tsx
+  - javascript
+  - jsx
+  - css
+  - mdx
+
+# Primary language for LSP operations
+primary_language: typescript
+
+# Modes to activate for this project
+modes:
+  - interactive      # Interactive development mode
+  - editing         # Enable code editing capabilities
+  - symbolic        # Enable symbolic code operations
+  - memory          # Enable memory generation and context capture
+
+# Memory configuration
+memory:
+  enabled: true
+  auto_capture: true
+  capture_on_file_change: true
+  capture_on_commit: true
+  memory_types:
+    - code_structure      # Capture architecture and code organization
+    - design_patterns     # Track SOLID principles and patterns used
+    - dependencies        # Track installed packages and their purposes
+    - api_surface         # Track public interfaces and exports
+    - conventions         # Capture coding standards and conventions
+
+# Symbolic code operations configuration
+symbolic:
+  enabled: true
+  track_imports: true
+  track_exports: true
+  track_types: true
+  track_interfaces: true
+  track_classes: true
+  track_functions: true
+  analyze_dependencies: true
+
+# Directory structure configuration
+directories:
+  source: src
+  tests: src/**/*.test.{ts,tsx}
+  config:
+    - "*.config.{ts,js,mjs}"
+    - tsconfig.json
+  documentation: docs
+
+# Excluded paths (don't analyze these)
+excluded_paths:
+  - node_modules
+  - .next
+  - .git
+  - dist
+  - build
+  - coverage
+  - .worktrees
+
+# Tool preferences
+tools:
+  # Enable code navigation tools
+  navigate_to_definition: true
+  find_references: true
+  find_implementations: true
+
+  # Enable refactoring tools
+  rename_symbol: true
+  extract_function: true
+  inline_variable: true
+
+  # Enable analysis tools
+  get_diagnostics: true
+  get_type_info: true
+  get_symbol_info: true
+
+# Context capture preferences
+context:
+  # Automatically capture context for senior engineering patterns
+  capture_patterns:
+    - repository_pattern
+    - service_layer
+    - dependency_injection
+    - factory_pattern
+    - strategy_pattern
+    - solid_principles
+
+  # Track architectural decisions
+  track_architecture: true
+
+  # Generate summaries for code reviews
+  generate_summaries: true
+
+# Integration with version control
+vcs:
+  type: git
+  track_branches: true
+  capture_commit_context: true
+
+# Performance settings
+performance:
+  max_file_size_kb: 1024
+  index_timeout_seconds: 30
+  analysis_timeout_seconds: 60

@@ -1,0 +1,203 @@
+---
+title: "Software Engineer II at Recurly"
+description: "Building Recurly Commerce, a subscription management platform integrated with Shopify for recurring revenue businesses"
+publishedAt: "2025-07-01"
+current: true
+category: "current"
+tags: ["shopify", "subscriptions", "saas", "ecommerce", "fullstack"]
+featured: true
+type: 'experience'
+author: "Esteban Estrada"
+thumbnail: "/images/projects/recurly.jpg"
+---
+
+# Software Engineer II at Recurly
+
+Currently working at Recurly as a Software Engineer II, focused on building and enhancing **Recurly Commerce**, a subscription management platform that helps Shopify merchants manage recurring revenue through subscriptions, memberships, and subscription boxes.
+
+## Experience Overview
+
+- **Company**: Recurly
+- **Role**: Software Engineer II
+- **Timeline**: July 2025 - Present (8 months)
+- **Location**: Medellín, Antioquia, Colombia
+- **Product**: Recurly Commerce (Shopify Subscription Platform)
+- **Tech Stack**: Full-stack web development, Shopify API, Payment Processing
+
+## About Recurly Commerce
+
+Recurly Commerce is a subscription management platform built specifically for Shopify merchants. It enables businesses to offer various subscription models including:
+
+- **Curated subscriptions** and subscription boxes
+- **Replenishment subscriptions** (recurring product deliveries)
+- **Access subscriptions** and memberships
+- **Product bundles** and customizable options
+- **Subscribe and save** programs with tiered pricing
+
+The platform integrates directly into Shopify's native checkout experience and provides a low-code customer portal for subscription management.
+
+## Key Responsibilities
+
+### Shopify Integration Development
+- Building and maintaining Shopify app extensions (checkout and customer account integrations)
+- Developing seamless integration between Recurly Commerce and Shopify's native checkout
+- Implementing webhook handlers for Shopify events (orders, products, customers)
+- Ensuring compliance with Shopify API rate limits and best practices
+- Working with Shopify's GraphQL Admin API for store data access
+
+### Subscription Management Features
+- Developing subscription lifecycle management (create, pause, skip, cancel)
+- Building bundle configuration systems (gift boxes, fixed bundles, customizable options)
+- Implementing pricing models (subscribe and save, tiered pricing, usage-based)
+- Creating trial period functionality and promotional pricing
+- Developing subscription modification flows (swaps, add-ons, upgrades/downgrades)
+
+### Customer Portal Development
+- Building low-code customer portal for subscription self-service
+- Implementing skip and swap functionality for subscription flexibility
+- Creating gift subscription management features
+- Developing subscription preference controls
+- Ensuring mobile-responsive portal experience
+
+### Payment Processing & Billing
+- Working with payment processing pipelines for recurring billing
+- Implementing retry logic for failed payments
+- Developing dunning management for recovering failed charges
+- Creating invoice generation and management systems
+- Handling proration calculations for subscription changes
+
+### Analytics & Reporting
+- Building analytics dashboards for merchant insights
+- Implementing metrics tracking (MRR, churn rate, LTV)
+- Creating executive reporting features
+- Developing data export capabilities
+- Integrating with third-party analytics platforms (Klaviyo, Fivetran)
+
+### Churn Reduction Features
+- Developing retention tools (pause subscriptions, incentives)
+- Building cancellation flow optimizations
+- Implementing win-back campaigns and offers
+- Creating automated retention workflows
+- Designing UX flows to reduce subscriber churn
+
+## Key Challenges & Solutions
+
+### Challenge 1: Shopify API Rate Limiting
+**Problem**: High-volume operations (bulk imports, sync operations) hitting Shopify API rate limits.
+
+**Solution**:
+- Implemented request queuing with exponential backoff
+- Built batch processing for bulk operations
+- Added caching layer for frequently accessed data
+- Created monitoring and alerting for rate limit proximity
+- Optimized API calls to use bulk operations where possible
+
+### Challenge 2: Subscription State Synchronization
+**Problem**: Keeping subscription state consistent between Recurly Commerce and Shopify (orders, inventory, customer data).
+
+**Solution**:
+- Implemented event-driven architecture with webhooks
+- Built idempotent webhook handlers to prevent duplicate processing
+- Created conflict resolution strategies for out-of-sync states
+- Added sync status tracking and manual reconciliation tools
+- Implemented retry mechanisms with dead letter queues
+
+### Challenge 3: Complex Pricing Calculations
+**Problem**: Handling various pricing models (tiered pricing, promotions, trials, proration) with correct tax calculations.
+
+**Solution**:
+- Built comprehensive pricing engine with rule-based calculations
+- Implemented preview functionality for subscription changes
+- Created extensive test coverage for pricing scenarios
+- Integrated with Shopify's tax calculation APIs
+- Documented pricing logic for support team reference
+
+### Challenge 4: Checkout Extension Performance
+**Problem**: Checkout extensions need to load fast to not impact conversion rates.
+
+**Solution**:
+- Optimized bundle size for checkout extensions
+- Implemented lazy loading for non-critical features
+- Added performance monitoring and alerting
+- Cached subscription configuration data
+- Minimized API calls during checkout flow
+
+## Skills Developed
+
+**Technical Skills**:
+- Shopify app development and ecosystem
+- Subscription billing system architecture
+- Payment processing and PCI compliance
+- Webhook-based integrations
+- E-commerce checkout optimization
+- Multi-tenant SaaS architecture
+
+**Domain Knowledge**:
+- Subscription business models and metrics (MRR, churn, LTV)
+- E-commerce best practices
+- Recurring payment processing
+- Merchant onboarding flows
+- Customer retention strategies
+
+**Tools & Platforms**:
+- Shopify Admin API (GraphQL & REST)
+- Shopify App Extensions
+- Third-party integrations (Klaviyo, Postscript, Gorgias)
+- Payment gateway integrations
+- Analytics platforms
+
+**Soft Skills**:
+- Working on a product used by thousands of merchants
+- Balancing merchant needs with platform scalability
+- Cross-functional collaboration with product, design, and support teams
+- Debugging production issues affecting live subscriptions
+- Communicating technical decisions to non-technical stakeholders
+
+## Impact & Results
+
+### Platform Performance
+- Maintaining high availability for subscription processing (critical for recurring revenue)
+- Fast checkout extension load times to prevent conversion drop-off
+- Reliable webhook processing for real-time sync
+- Scalable architecture handling thousands of subscription operations daily
+
+### Merchant Experience
+- Simplified subscription setup process for new merchants
+- Intuitive admin interface for managing subscriptions
+- Comprehensive analytics for business insights
+- Flexible subscription options to match various business models
+
+### Customer Experience
+- Seamless Shopify-native checkout experience
+- Easy-to-use customer portal for subscription management
+- Reliable subscription deliveries and billing
+- Flexible pause/skip/swap options reducing cancellations
+
+## Technical Highlights
+
+**Shopify Integration Architecture**:
+- OAuth 2.0 authentication for merchant stores
+- Webhook subscriptions for real-time updates
+- App extensions embedded in Shopify admin and checkout
+- Theme app extensions for storefront integration
+- Metafield management for subscription data
+
+**Subscription Engine**:
+- Recurring billing scheduler with timezone handling
+- Subscription lifecycle state machine
+- Flexible pricing rule engine
+- Inventory allocation for upcoming orders
+- Automated notification system
+
+**Third-Party Integrations**:
+- Klaviyo for email marketing automation
+- Postscript for SMS notifications
+- Gorgias for customer support context
+- Fivetran for data warehouse integration
+- Payment gateway connections
+
+This role at Recurly has taught me how to build reliable, merchant-facing SaaS products integrated deeply with e-commerce platforms like Shopify, handling the complexity of subscription billing at scale.
+
+---
+
+**Key Takeaway**: Working on Recurly Commerce has deepened my understanding of subscription business models, Shopify ecosystem development, and building scalable SaaS products for e-commerce merchants.
