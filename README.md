@@ -1,4 +1,4 @@
-# 🌿 Code Garden
+# Code Garden
 
 > **A technical blog and portfolio exploring AI-driven development, autonomous agents, and Model Context Protocol (MCP).** Built entirely with AI orchestration using Claude Code and Gemini - zero human-written code modifications.
 
@@ -12,55 +12,54 @@
 
 ---
 
-## 🎯 What is Code Garden?
+## What is Code Garden?
 
 Code Garden is a **digital garden** where I share experiments, tutorials, and case studies about:
-- 🤖 **Autonomous AI Agents** (Claude, Gemini)
-- 🔌 **Model Context Protocol (MCP)** integrations
-- ⚡ **Modern Frontend Development** (Next.js 16, React 19, Tailwind 4)
-- 🎨 **Creative UI/UX** with Neo-Brutalist design
-- 🎬 **Remotion** for programmatic video creation
+
+- **Autonomous AI Agents** (Claude, Gemini)
+- **Model Context Protocol (MCP)** integrations
+- **Modern Frontend Development** (Next.js 16, React 19, Tailwind 4)
+- **Creative UI/UX** with Neo-Brutalist design
 
 Built as a **living showcase** of what's possible when AI orchestrates the entire development process - from ideation to production.
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-### 🎨 **Neo-Brutalist Design System**
+### Neo-Brutalist Design System
+
 - Bold, high-contrast aesthetic with thick borders and dramatic shadows
 - Animated terminal-style UI components
 - Dark/light theme support with seamless transitions
 - GSAP-powered entrance animations throughout
 - Responsive grid layouts that adapt beautifully to all devices
 
-### 📝 **MDX-Powered Content**
+### MDX-Powered Content
+
 - Rich blog posts with interactive MDX components
 - **Custom components**: Terminal animations, Mermaid diagrams, code snippets with syntax highlighting
 - Fuzzy search functionality across all content
 - Reading time estimates and table of contents
 - Post navigation with previous/next links
 
-### 🎬 **Remotion Video Integration**
-- Programmatic video creation with React
-- AI workflow visualizations
-- Embedded video tutorials and demos
-- Build-time rendering for optimal performance
+### Content Discovery
 
-### 🔍 **Content Discovery**
 - **Search modal** with keyboard shortcuts (⌘K / Ctrl+K)
 - **Filter by tags** and categories
 - **Experiments showcase** with featured projects
 - **Experience timeline** with role details and tech stacks
 
-### ⚡ **Performance & SEO**
+### Performance & SEO
+
 - Server-side rendering with Next.js App Router
 - Static site generation for instant page loads
 - Automatic sitemap generation
 - Optimized images with Next.js Image component
 - Zero ESLint errors - production ready
 
-### 🎯 **Developer Experience**
+### Developer Experience
+
 - TypeScript for complete type safety
 - Structured content repository pattern
 - Modular component architecture
@@ -69,9 +68,10 @@ Built as a **living showcase** of what's possible when AI orchestrates the entir
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
+
 - Node.js 20+ (LTS recommended)
 - pnpm (or npm/yarn)
 - Git
@@ -102,16 +102,9 @@ pnpm lint         # Run ESLint
 pnpm type-check   # Run TypeScript compiler check
 ```
 
-### Remotion Development
-
-```bash
-pnpm remotion:dev    # Preview Remotion compositions
-pnpm remotion:render # Render videos to public/videos/
-```
-
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 portfolio/
@@ -160,8 +153,6 @@ portfolio/
 │   │   │   ├── Terminal/             # Terminal UI component
 │   │   │   ├── IconButton/           # Icon-only buttons
 │   │   │   └── NavLink/              # Navigation links
-│   │   └── video/                    # Remotion integration
-│   │       └── RemotionPlayer/       # Lazy-loaded player component
 │   ├── content/                      # MDX content files
 │   │   ├── about.mdx                 # About page content
 │   │   ├── blog/                     # Blog posts (tutorials, experiments)
@@ -184,17 +175,10 @@ portfolio/
 │   │   │   └── ui.types.ts           # UI component types
 │   │   └── utils/                    # Utility functions
 │   │       └── animation.utils.ts    # GSAP utilities
-├── remotion/                         # Remotion video compositions
-│   ├── compositions/
-│   │   ├── HelloWorld.tsx            # Example composition
-│   │   └── AIWorkflow.tsx            # AI workflow visualization
-│   ├── Root.tsx                      # Remotion root component
-│   └── remotion.config.ts            # Remotion configuration
 ├── public/                           # Static assets
 │   ├── me.JPG                        # Profile photo
 │   ├── profile.pdf                   # Resume/CV
-│   ├── robots.txt                    # SEO robots file
-│   └── videos/                       # Rendered Remotion videos
+│   └── robots.txt                    # SEO robots file
 ├── mdx-components.tsx                # Global MDX component mapping
 ├── tsconfig.json                     # TypeScript configuration
 ├── tailwind.config.ts                # Tailwind CSS configuration
@@ -204,7 +188,7 @@ portfolio/
 
 ---
 
-## 📝 Creating Content
+## Creating Content
 
 ### Writing a Blog Post
 
@@ -212,13 +196,13 @@ Create a new MDX file in `src/content/blog/`:
 
 ```mdx
 ---
-title: "Building a Custom MCP Server"
-description: "Learn how to create a Model Context Protocol server from scratch"
-publishedAt: "2026-02-08"
-category: "tutorial"
-tags: ["mcp", "typescript", "ai"]
+title: 'Building a Custom MCP Server'
+description: 'Learn how to create a Model Context Protocol server from scratch'
+publishedAt: '2026-02-08'
+category: 'tutorial'
+tags: ['mcp', 'typescript', 'ai']
 featured: true
-author: "Esteban Estrada"
+author: 'Esteban Estrada'
 ---
 
 ## Introduction
@@ -227,9 +211,7 @@ Your content here with full MDX support...
 
 <Terminal
   title="Installation"
-  lines={[
-    { text: 'npm install @modelcontextprotocol/sdk', color: 'cyan', prefix: '$' },
-  ]}
+  lines={[{ text: 'npm install @modelcontextprotocol/sdk', color: 'cyan', prefix: '$' }]}
 />
 
 <CodeSnippet language="typescript" filename="server.ts">
@@ -237,10 +219,11 @@ Your content here with full MDX support...
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 
 const server = new Server({
-  name: 'my-mcp-server',
-  version: '1.0.0',
+name: 'my-mcp-server',
+version: '1.0.0',
 });
 `}
+
 </CodeSnippet>
 ```
 
@@ -260,11 +243,11 @@ Create a new MDX file in `src/content/projects/`:
 
 ```mdx
 ---
-title: "Recurly"
-role: "Senior Frontend Engineer"
-period: "2022 - 2024"
-description: "Led frontend architecture for subscription management platform"
-tags: ["react", "typescript", "graphql"]
+title: 'Recurly'
+role: 'Senior Frontend Engineer'
+period: '2022 - 2024'
+description: 'Led frontend architecture for subscription management platform'
+tags: ['react', 'typescript', 'graphql']
 featured: true
 ---
 
@@ -273,7 +256,7 @@ Your project description and achievements...
 
 ---
 
-## 🎨 Design System
+## Design System
 
 ### Typography
 
@@ -288,20 +271,21 @@ Your project description and achievements...
 --color-bg: #ffffff;
 --color-bg-elevated: #f5f5f5;
 --color-foreground: #000000;
---color-primary: #7C3AED;      /* Purple */
---color-secondary: #FBBF24;     /* Yellow */
+--color-primary: #7c3aed; /* Purple */
+--color-secondary: #fbbf24; /* Yellow */
 
 /* Dark Theme */
 --color-bg: #0a0a0a;
 --color-bg-elevated: #1a1a1a;
 --color-foreground: #ffffff;
---color-primary: #A78BFA;       /* Light purple */
---color-secondary: #FCD34D;     /* Light yellow */
+--color-primary: #a78bfa; /* Light purple */
+--color-secondary: #fcd34d; /* Light yellow */
 ```
 
 ### Component Patterns
 
 **Brutal Card Style:**
+
 ```css
 .brutal-card {
   border: 3px solid var(--color-foreground);
@@ -341,38 +325,37 @@ export const STAGGER = {
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Core Framework
+
 - **[Next.js 16](https://nextjs.org/)** - React framework with App Router
 - **[React 19](https://react.dev/)** - UI library with React Compiler
 - **[TypeScript 5](https://www.typescriptlang.org/)** - Type safety
 - **[Tailwind CSS 4](https://tailwindcss.com/)** - Utility-first styling
 
 ### Animation & Interaction
+
 - **[GSAP](https://greensock.com/gsap/)** - Professional-grade animations
 - **[Lucide React](https://lucide.dev/)** - Beautiful icon library
 - **[Mermaid](https://mermaid.js.org/)** - Diagram rendering
 
 ### Content Management
+
 - **[next-mdx-remote](https://github.com/hashicorp/next-mdx-remote)** - MDX processing for RSC
 - **[gray-matter](https://github.com/jonschlinkert/gray-matter)** - Frontmatter parsing
 - **[shiki](https://shiki.matsu.io/)** - Syntax highlighting
 - **[reading-time](https://github.com/ngryman/reading-time)** - Read time calculation
 
-### Video & Media
-- **[Remotion](https://www.remotion.dev/)** - Programmatic video creation
-- **[@remotion/player](https://www.remotion.dev/docs/player)** - React player component
-- **[@remotion/bundler](https://www.remotion.dev/docs/bundler)** - Video bundling
-
 ### Developer Tools
+
 - **[ESLint](https://eslint.org/)** - Code linting
 - **[Prettier](https://prettier.io/)** - Code formatting
 - **[pnpm](https://pnpm.io/)** - Fast, efficient package manager
 
 ---
 
-## 🚢 Deployment
+## Deployment
 
 ### Deploy to Vercel (Recommended)
 
@@ -403,6 +386,7 @@ NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 ### Build Configuration
 
 The project includes optimized build settings in `next.config.ts`:
+
 - Static export for CDN hosting
 - Image optimization with Next.js Image
 - MDX compilation with proper loaders
@@ -410,7 +394,7 @@ The project includes optimized build settings in `next.config.ts`:
 
 ---
 
-## 🤖 AI-Driven Development
+## AI-Driven Development
 
 This entire portfolio was built using **AI orchestration** - a modern development workflow where AI agents handle all code generation:
 
@@ -422,19 +406,18 @@ This entire portfolio was built using **AI orchestration** - a modern developmen
 
 ### Key Achievements
 
-- ✅ **Zero human-written code** modifications
-- ✅ **0 ESLint errors** - production-ready codebase
-- ✅ **Complete type safety** - TypeScript throughout
-- ✅ **Consistent design system** - Neo-Brutalist aesthetic
-- ✅ **Comprehensive features** - Search, animations, MDX, videos
-- ✅ **Built in record time** - Hours instead of weeks
+- **Zero human-written code** modifications
+- **0 ESLint errors** - production-ready codebase
+- **Complete type safety** - TypeScript throughout
+- **Consistent design system** - Neo-Brutalist aesthetic
+- **Comprehensive features** - Search, animations, MDX
+- **Built in record time** - Hours instead of weeks
 
 ### Technologies Orchestrated by AI
 
 - Next.js 16 App Router architecture
 - GSAP animation timelines and scroll triggers
 - MDX content pipeline with custom components
-- Remotion video compositions
 - Search functionality with fuzzy matching
 - Responsive layouts and theme system
 
@@ -442,19 +425,20 @@ This entire portfolio was built using **AI orchestration** - a modern developmen
 
 ---
 
-## 📊 Performance
+## Performance
 
-- ⚡ **Lighthouse Score**: 95+ on all pages
-- 🎯 **First Contentful Paint**: < 1.5s
-- 📦 **Bundle Size**: Optimized with code splitting
-- 🖼️ **Image Optimization**: Next.js Image with lazy loading
-- 🔄 **Zero Layout Shift**: Proper aspect ratios and skeleton states
+- **Lighthouse Score**: 95+ on all pages
+- **First Contentful Paint**: < 1.5s
+- **Bundle Size**: Optimized with code splitting
+- **Image Optimization**: Next.js Image with lazy loading
+- **Zero Layout Shift**: Proper aspect ratios and skeleton states
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
-### Completed ✅
+### Completed
+
 - [x] Next.js 16 setup with App Router
 - [x] Neo-Brutalist design system
 - [x] GSAP animation integration
@@ -466,12 +450,12 @@ This entire portfolio was built using **AI orchestration** - a modern developmen
 - [x] Experiments/blog listing and detail pages
 - [x] Search functionality (fuzzy search)
 - [x] Theme toggle (dark/light)
-- [x] Remotion video integration
 - [x] SEO optimization (sitemap, metadata)
 - [x] Error handling (404, error pages)
 - [x] Production deployment
 
-### Upcoming 🚀
+### Upcoming
+
 - [ ] More blog content (MCP tutorials, AI workflows)
 - [ ] Newsletter subscription
 - [ ] Comments system (giscus)
@@ -484,7 +468,7 @@ This entire portfolio was built using **AI orchestration** - a modern developmen
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 While this is a personal portfolio, contributions are welcome! Found a bug or have a suggestion?
 
@@ -505,50 +489,53 @@ While this is a personal portfolio, contributions are welcome! Found a bug or ha
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-You're free to use this code as inspiration for your own portfolio, but please don't copy the content or design wholesale. Make it your own! 🎨
+You're free to use this code as inspiration for your own portfolio, but please don't copy the content or design wholesale. Make it your own!
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 ### Technologies
+
 - **[Vercel](https://vercel.com/)** - For Next.js and incredible hosting
 - **[GreenSock](https://greensock.com/)** - For GSAP animation library
-- **[Remotion](https://www.remotion.dev/)** - For programmatic video creation
 - **[Tailwind Labs](https://tailwindcss.com/)** - For Tailwind CSS
 - **[MDX](https://mdxjs.com/)** - For the amazing MDX ecosystem
 
 ### AI Partners
+
 - **[Claude](https://claude.ai/)** (Anthropic) - AI pair programmer
 - **[Gemini](https://gemini.google.com/)** (Google) - Brainstorming partner
 
 ### Inspiration
+
 - **Digital gardens** movement - For the concept of learning in public
 - **Neo-Brutalism** design trend - For the bold aesthetic
 - **Open source community** - For incredible tools and libraries
 
 ---
 
-## 💬 Contact
+## Contact
 
 **Esteban Estrada**
-- 🌐 Portfolio: [codestz.dev](https://codestz.dev) _(coming soon)_
-- 📧 Email: est.estrada@outlook.com
-- 🐙 GitHub: [@Codestz](https://github.com/Codestz)
-- 💼 LinkedIn: [Esteban Estrada](https://www.linkedin.com/in/esteban-diaz-estrada/)
+
+- Portfolio: [codestz.dev](https://codestz.dev) _(coming soon)_
+- Email: est.estrada@outlook.com
+- GitHub: [@Codestz](https://github.com/Codestz)
+- LinkedIn: [Esteban Estrada](https://www.linkedin.com/in/esteban-diaz-estrada/)
 
 ---
 
 <div align="center">
 
-**Built with 🤖 AI orchestration using Claude Code + Gemini**
+**Built with AI orchestration using Claude Code + Gemini**
 
 _Showcasing the future of AI-driven development_
 
-⭐ **Star this repo** if you find it helpful!
+**Star this repo** if you find it helpful!
 
 </div>

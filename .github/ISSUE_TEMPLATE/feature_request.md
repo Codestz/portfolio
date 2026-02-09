@@ -6,19 +6,19 @@ labels: enhancement
 assignees: ''
 ---
 
-## ✨ Feature Description
+## Feature Description
 
 <!-- A clear and concise description of the feature you'd like -->
 
-## 🎯 Problem Statement
+## Problem Statement
 
 <!-- What problem does this feature solve? -->
 
-## 💡 Proposed Solution
+## Proposed Solution
 
 <!-- How would you like this feature to work? -->
 
-## 🎨 Design Considerations
+## Design Considerations
 
 <!-- How should this fit with the Neo-Brutalist design system? -->
 
@@ -27,7 +27,7 @@ assignees: ''
 - [ ] Should follow existing color scheme
 - [ ] Should be responsive (mobile-first)
 
-## 📱 Responsive Behavior
+## Responsive Behavior
 
 <!-- How should this feature work on different screen sizes? -->
 
@@ -35,15 +35,15 @@ assignees: ''
 - Tablet (640px - 1024px):
 - Desktop (1024px+):
 
-## 🔄 Alternatives Considered
+## Alternatives Considered
 
 <!-- What alternative solutions or features have you considered? -->
 
-## 📚 Additional Context
+## Additional Context
 
 <!-- Add any other context, mockups, or examples -->
 
-## 🚀 Priority
+## Priority
 
 - [ ] Critical (blocking or major issue)
 - [ ] High (important but not blocking)

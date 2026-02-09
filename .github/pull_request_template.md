@@ -1,41 +1,43 @@
 # Pull Request
 
-## 📋 Description
+## Description
 
 <!-- Provide a clear and concise description of what this PR does -->
 
-## 🎯 Type of Change
+## Type of Change
 
 <!-- Mark the relevant option with an "x" -->
 
-- [ ] 🐛 Bug fix (non-breaking change which fixes an issue)
-- [ ] ✨ New feature (non-breaking change which adds functionality)
-- [ ] 💥 Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] 📝 Documentation update
-- [ ] 🎨 Style/UI update (no functional changes)
-- [ ] ♻️ Refactoring (no functional changes)
-- [ ] ⚡ Performance improvement
-- [ ] ✅ Test update
-- [ ] 🔧 Configuration change
-- [ ] 🚀 Build/deployment change
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] Documentation update
+- [ ] Style/UI update (no functional changes)
+- [ ] Refactoring (no functional changes)
+- [ ] Performance improvement
+- [ ] Test update
+- [ ] Configuration change
+- [ ] Build/deployment change
 
-## 🔗 Related Issues
+## Related Issues
 
 <!-- Link to related issues using #issue_number -->
 
 Closes #
 
-## 📸 Screenshots (if applicable)
+## Screenshots (if applicable)
 
 <!-- Add screenshots to help explain your changes -->
 
 ### Before
+
 <!-- Screenshot of the old behavior -->
 
 ### After
+
 <!-- Screenshot of the new behavior -->
 
-## ✅ Checklist
+## Checklist
 
 <!-- Mark completed items with an "x" -->
 
@@ -50,11 +52,12 @@ Closes #
 - [ ] I have checked for accessibility issues
 - [ ] I have updated the README if needed
 
-## 🧪 Testing
+## Testing
 
 <!-- Describe the tests you ran and how to reproduce them -->
 
 ### Test Environment
+
 - [ ] Chrome
 - [ ] Safari
 - [ ] Firefox
@@ -62,11 +65,12 @@ Closes #
 - [ ] Mobile (specify device/browser)
 
 ### How to Test
+
 1.
 2.
 3.
 
-## 📱 Responsive Design
+## Responsive Design
 
 <!-- If this PR includes UI changes, confirm responsive behavior -->
 
@@ -76,7 +80,7 @@ Closes #
 - [ ] Touch targets are 44px+ minimum
 - [ ] No horizontal scrolling on any breakpoint
 
-## ⚡ Performance
+## Performance
 
 <!-- If applicable, describe performance impact -->
 
@@ -84,11 +88,11 @@ Closes #
 - [ ] Performance improvements included
 - [ ] Bundle size impact assessed
 
-## 📚 Additional Notes
+## Additional Notes
 
 <!-- Add any additional context, considerations, or follow-up items -->
 
-## 🤖 AI Contribution
+## AI Contribution
 
 <!-- If this PR was created with AI assistance, acknowledge it -->
 
