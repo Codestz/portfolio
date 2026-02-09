@@ -1,15 +1,20 @@
-import Link from 'next/link';
 import { ArrowRight, ExternalLink, Github } from 'lucide-react';
 import { Section } from '@/components/sections';
 import { Card, Button, Badge } from '@/components/ui';
 import { contentService } from '@/lib/services';
 import { ROUTES } from '@/lib/constants';
+import { generatePageMetadata } from '@/lib/utils';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
+/**
+ * Static metadata for the Experience listing page
+ * For dynamic pages (with [slug]), use generateMetadata() instead
+ */
+export const metadata: Metadata = generatePageMetadata({
   title: 'Experience',
   description: 'Professional experience and impactful projects across AI integration, microservices, and full-stack development',
-};
+  path: '/experience',
+});
 
 export default async function ExperiencePage() {
   const allProjectsResult = await contentService.getAllProjects();
@@ -91,17 +96,16 @@ export default async function ExperiencePage() {
                         Live
                       </Button>
                     )}
-                    <Link href={ROUTES.experience.detail(project.slug)}>
-                      <Button
-                        as="a"
-                        variant="primary"
-                        size="sm"
-                        className="ml-auto"
-                        rightIcon={<ArrowRight className="h-3 w-3" />}
-                      >
-                        Details
-                      </Button>
-                    </Link>
+                    <Button
+                      as="a"
+                      href={ROUTES.experience.detail(project.slug)}
+                      variant="primary"
+                      size="sm"
+                      className="ml-auto"
+                      rightIcon={<ArrowRight className="h-3 w-3" />}
+                    >
+                      Details
+                    </Button>
                   </div>
                 </Card.Footer>
               </Card>

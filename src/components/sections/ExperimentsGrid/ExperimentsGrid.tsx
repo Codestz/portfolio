@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Card, Button, Badge } from '@/components/ui';
 import { FilterBar } from '@/components/sections';
 import { ROUTES } from '@/lib/constants';
+import { formatDate } from '@/lib/utils';
 import type { Post } from '@/lib/types';
 import type { FilterState } from '../FilterBar/FilterBar.types';
 
@@ -96,11 +96,7 @@ export function ExperimentsGrid({ posts }: ExperimentsGridProps) {
                   {post.title}
                 </h2>
                 <p className="text-xs text-foreground/60">
-                  {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })} · {post.readTime}
+                  {formatDate(post.publishedAt)} · {post.readTime}
                 </p>
               </Card.Header>
               <Card.Body>
@@ -114,16 +110,15 @@ export function ExperimentsGrid({ posts }: ExperimentsGridProps) {
                 </div>
               </Card.Body>
               <Card.Footer>
-                <Link href={ROUTES.experiments.post(post.slug)}>
-                  <Button
-                    as="a"
-                    variant="outline"
-                    size="sm"
-                    rightIcon={<ArrowRight className="h-3 w-3" />}
-                  >
-                    Read More
-                  </Button>
-                </Link>
+                <Button
+                  as="a"
+                  href={ROUTES.experiments.post(post.slug)}
+                  variant="outline"
+                  size="sm"
+                  rightIcon={<ArrowRight className="h-3 w-3" />}
+                >
+                  Read More
+                </Button>
               </Card.Footer>
             </Card>
           ))}

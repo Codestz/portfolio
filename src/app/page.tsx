@@ -9,6 +9,15 @@ import {
   SlotMachine,
 } from '@/components/sections';
 import { contentService } from '@/lib/services';
+import { generatePageMetadata } from '@/lib/utils';
+
+/**
+ * Static metadata for the home page
+ * For dynamic pages (with [slug]), use generateMetadata() instead
+ */
+export const metadata = generatePageMetadata({
+  path: '/',
+});
 
 export default async function HomePage() {
   // Fetch latest blog posts

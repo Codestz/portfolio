@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
-import Link from 'next/link';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/primitives';
 import { useScrollTrigger } from '@/lib/hooks';
@@ -128,16 +127,15 @@ export function LetsConnectSection({ className }: LetsConnectSectionProps) {
 
           {/* CTA Button */}
           <div>
-            <Link href="/about">
-              <Button
-                as="a"
-                variant="outline"
-                size="lg"
-                className="bg-white text-black border-white hover:bg-black hover:text-white hover:border-white"
-              >
-                Learn More About Me
-              </Button>
-            </Link>
+            <Button
+              as="a"
+              href="/about"
+              variant="outline"
+              size="lg"
+              className="bg-white text-black border-white hover:bg-black hover:text-white hover:border-white"
+            >
+              Learn More About Me
+            </Button>
           </div>
         </div>
       </div>

@@ -3,15 +3,9 @@
 import Image from 'next/image';
 import { Badge } from '@/components/ui/primitives';
 import { cn } from '@/lib/utils';
+import type { MediaCardProps } from './MediaCard.types';
 
-export interface MediaCardProps {
-  label?: string;
-  onClick?: () => void;
-  thumbnail?: string;
-  icon?: 'play' | 'pause' | React.ReactNode;
-  variant?: 'default' | 'dark';
-  className?: string;
-}
+export type { MediaCardProps };
 
 /**
  * MediaCard Component

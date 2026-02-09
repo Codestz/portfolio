@@ -1,11 +1,7 @@
-import { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
+import type { HighlightTextProps } from './HighlightText.types';
 
-export interface HighlightTextProps {
-  children: ReactNode;
-  variant?: 'secondary' | 'primary' | 'underline';
-  className?: string;
-}
+export type { HighlightTextProps };
 
 /**
  * HighlightText Component

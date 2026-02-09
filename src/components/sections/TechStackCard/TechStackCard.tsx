@@ -2,11 +2,9 @@
 
 import { BadgeGrid } from '@/components/ui/primitives';
 import { cn } from '@/lib/utils';
+import type { TechStackCardProps } from './TechStackCard.types';
 
-export interface TechStackCardProps {
-  technologies?: string[];
-  className?: string;
-}
+export type { TechStackCardProps };
 
 const defaultTechnologies = ['Next.js 16', 'TS', 'GSAP', 'R3F', 'MDX'];
 

@@ -2,7 +2,6 @@
 
 import { useRef, useEffect } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Button } from '@/components/ui/primitives';
 import { ArrowRight } from 'lucide-react';
 import { useScrollTrigger } from '@/lib/hooks';
@@ -94,16 +93,15 @@ export function AboutMeSection({ className }: AboutMeSectionProps) {
             </p>
           </div>
 
-          <Link href="/about">
-            <Button
-              as="a"
-              variant="primary"
-              size="lg"
-              rightIcon={<ArrowRight className="h-5 w-5" />}
-            >
-              Read Full Story
-            </Button>
-          </Link>
+          <Button
+            as="a"
+            href="/about"
+            variant="primary"
+            size="lg"
+            rightIcon={<ArrowRight className="h-5 w-5" />}
+          >
+            Read Full Story
+          </Button>
         </div>
       </div>
     </section>

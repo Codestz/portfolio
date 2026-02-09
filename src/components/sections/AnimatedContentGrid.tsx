@@ -1,15 +1,10 @@
 'use client';
 
-import { useRef, useEffect, ReactNode } from 'react';
+import { useRef, useEffect } from 'react';
 import { useScrollTrigger } from '@/lib/hooks';
 import { prefersReducedMotion } from '@/lib/utils/animation.utils';
 import gsap from 'gsap';
-
-interface AnimatedContentGridProps {
-  children: ReactNode;
-  className?: string;
-  id?: string;
-}
+import type { AnimatedContentGridProps } from './AnimatedContentGrid.types';
 
 /**
  * AnimatedContentGrid Component

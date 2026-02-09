@@ -6,12 +6,17 @@ import {
   BeyondCode,
 } from '@/components/about';
 import { LetsConnectSection } from '@/components/sections';
-import { Metadata } from 'next';
+import { generatePageMetadata } from '@/lib/utils';
 
-export const metadata: Metadata = {
-  title: 'About Me - Esteban Estrada',
+/**
+ * Static metadata for the About page
+ * For dynamic pages (with [slug]), use generateMetadata() instead
+ */
+export const metadata = generatePageMetadata({
+  title: 'About Me',
   description: 'Software Engineer II specializing in AI integration, full-stack development, and performance optimization. Based in Medellín, Colombia.',
-};
+  path: '/about',
+});
 
 export default function AboutPage() {
   return (

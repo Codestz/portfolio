@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { Section } from '@/components/sections';
@@ -7,11 +6,15 @@ import { Button, Badge } from '@/components/ui';
 import { contentService } from '@/lib/services';
 import { ROUTES } from '@/lib/constants';
 import type { Metadata } from 'next';
+import { mdxComponents } from '../../../../mdx-components';
+import { generateBlogPostMetadata, formatDate } from '@/lib/utils';
+import type { BlogPostPageProps } from './page.types';
 
-interface BlogPostPageProps {
-  params: Promise<{ slug: string }>;
-}
-
+/**
+ * Dynamic metadata generation for individual blog posts
+ * Uses async function because metadata depends on the dynamic [slug] parameter
+ * For static pages, use `export const metadata` instead
+ */
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
   const postResult = await contentService.getPostBySlug(slug);
@@ -24,10 +27,15 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
   const post = postResult.data;
 
-  return {
+  return generateBlogPostMetadata({
     title: post.title,
     description: post.description,
-  };
+    slug: post.slug,
+    publishedAt: post.publishedAt,
+    updatedAt: post.updatedAt,
+    tags: post.tags,
+    thumbnail: post.thumbnail,
+  });
 }
 
 export async function generateStaticParams() {
@@ -54,17 +62,16 @@ export default async function ExperimentPage({ params }: BlogPostPageProps) {
       <Section>
         <div className="mx-auto max-w-3xl">
           {/* Back Link */}
-          <Link href={ROUTES.experiments.index}>
-            <Button
-              as="a"
-              variant="ghost"
-              size="sm"
-              leftIcon={<ArrowLeft className="h-3 w-3" />}
-              className="mb-8"
-            >
-              Back to Experiments
-            </Button>
-          </Link>
+          <Button
+            as="a"
+            href={ROUTES.experiments.index}
+            variant="ghost"
+            size="sm"
+            leftIcon={<ArrowLeft className="h-3 w-3" />}
+            className="mb-8"
+          >
+            Back to Experiments
+          </Button>
 
           {/* Article Header */}
           <article className="prose prose-lg dark:prose-invert max-w-none">
@@ -84,11 +91,7 @@ export default async function ExperimentPage({ params }: BlogPostPageProps) {
                 <div className="flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
                   <time dateTime={post.publishedAt}>
-                    {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
+                    {formatDate(post.publishedAt)}
                   </time>
                 </div>
                 <div className="flex items-center gap-2">
@@ -108,7 +111,7 @@ export default async function ExperimentPage({ params }: BlogPostPageProps) {
 
             {/* Article Content */}
             <div className="mt-8">
-              <MDXRemote source={post.content} />
+              <MDXRemote source={post.content} components={mdxComponents} />
             </div>
           </article>
         </div>

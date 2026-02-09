@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { Section } from '@/components/sections';
@@ -7,11 +6,15 @@ import { Button, Badge } from '@/components/ui';
 import { contentService } from '@/lib/services';
 import { ROUTES } from '@/lib/constants';
 import type { Metadata } from 'next';
+import { mdxComponents } from '../../../../mdx-components';
+import { generateProjectMetadata } from '@/lib/utils';
+import type { ExperiencePageProps } from './page.types';
 
-interface ExperiencePageProps {
-  params: Promise<{ slug: string }>;
-}
-
+/**
+ * Dynamic metadata generation for individual project pages
+ * Uses async function because metadata depends on the dynamic [slug] parameter
+ * For static pages, use `export const metadata` instead
+ */
 export async function generateMetadata({ params }: ExperiencePageProps): Promise<Metadata> {
   const { slug } = await params;
   const projectResult = await contentService.getProjectBySlug(slug);
@@ -24,10 +27,13 @@ export async function generateMetadata({ params }: ExperiencePageProps): Promise
 
   const project = projectResult.data;
 
-  return {
+  return generateProjectMetadata({
     title: project.title,
     description: project.description,
-  };
+    slug: project.slug,
+    thumbnail: project.thumbnail,
+    technologies: project.technologies,
+  });
 }
 
 export async function generateStaticParams() {
@@ -54,17 +60,16 @@ export default async function ExperienceDetailPage({ params }: ExperiencePagePro
       <Section>
         <div className="mx-auto max-w-3xl">
           {/* Back Link */}
-          <Link href={ROUTES.experience.index}>
-            <Button
-              as="a"
-              variant="ghost"
-              size="sm"
-              leftIcon={<ArrowLeft className="h-3 w-3" />}
-              className="mb-8"
-            >
-              Back to Experience
-            </Button>
-          </Link>
+          <Button
+            as="a"
+            href={ROUTES.experience.index}
+            variant="ghost"
+            size="sm"
+            leftIcon={<ArrowLeft className="h-3 w-3" />}
+            className="mb-8"
+          >
+            Back to Experience
+          </Button>
 
           {/* Project Header */}
           <article className="prose prose-lg dark:prose-invert max-w-none">
@@ -145,7 +150,7 @@ export default async function ExperienceDetailPage({ params }: ExperiencePagePro
 
             {/* Project Content */}
             <div className="mt-8">
-              <MDXRemote source={project.content} />
+              <MDXRemote source={project.content} components={mdxComponents} />
             </div>
           </article>
         </div>
