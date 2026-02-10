@@ -37,6 +37,13 @@ export interface Project {
   readonly content: string;
 }
 
+export interface CurrentWork {
+  readonly title: string;
+  readonly description: string;
+  readonly stack: readonly string[];
+  readonly publishedAt: string;
+}
+
 export interface Frontmatter {
   readonly title: string;
   readonly description: string;
@@ -49,20 +56,12 @@ export interface Frontmatter {
  */
 export function isPost(obj: unknown): obj is Post {
   return (
-    typeof obj === 'object' &&
-    obj !== null &&
-    'slug' in obj &&
-    'title' in obj &&
-    'content' in obj
+    typeof obj === 'object' && obj !== null && 'slug' in obj && 'title' in obj && 'content' in obj
   );
 }
 
 export function isProject(obj: unknown): obj is Project {
   return (
-    typeof obj === 'object' &&
-    obj !== null &&
-    'slug' in obj &&
-    'title' in obj &&
-    'company' in obj
+    typeof obj === 'object' && obj !== null && 'slug' in obj && 'title' in obj && 'company' in obj
   );
 }

@@ -161,14 +161,12 @@ export function Mermaid({ chart, className }: MermaidProps) {
             dangerouslySetInnerHTML={{ __html: svg }}
           />
         ) : (
-          <div className="text-center text-foreground/60 py-8 font-mono">
-            Rendering diagram...
-          </div>
+          <div className="text-center text-foreground/60 py-8 font-mono">Rendering diagram...</div>
         )}
       </div>
 
       {/* Instructions */}
-      <div className="absolute bottom-2 left-4 text-xs text-foreground/50 font-mono">
+      <div className="absolute bottom-2 left-4 text-xs text-zinc-500 dark:text-zinc-400 font-mono">
         💡 Drag to pan • Scroll to zoom • Click controls to zoom
       </div>
     </div>

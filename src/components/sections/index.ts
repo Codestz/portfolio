@@ -4,6 +4,7 @@ export { TechStackCard } from './TechStackCard';
 export { CurrentlyBuildingCard } from './CurrentlyBuildingCard';
 export { AnimatedContentGrid } from './AnimatedContentGrid';
 export { Section } from './Section';
+export { AnimatedSection } from './AnimatedSection';
 export { FilterBar } from './FilterBar';
 export { ExperimentsGrid } from './ExperimentsGrid';
 export { AboutMeSection } from './AboutMeSection';

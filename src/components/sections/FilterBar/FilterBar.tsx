@@ -1,9 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Search, X } from 'lucide-react';
+import gsap from 'gsap';
 import { Badge } from '@/components/ui/primitives';
-import { cn } from '@/lib/utils';
+import { cn, prefersReducedMotion } from '@/lib/utils';
+import { useScrollTrigger } from '@/lib/hooks';
 import type { FilterBarProps } from './FilterBar.types';
 
 /**
@@ -19,6 +21,40 @@ export function FilterBar({
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
+  const searchRef = useRef<HTMLDivElement>(null);
+  const categoriesRef = useRef<HTMLDivElement>(null);
+  const tagsRef = useRef<HTMLDivElement>(null);
+  const hasAnimated = useRef(false);
+  const { ref: triggerRef, isInView } = useScrollTrigger({
+    start: 'top 85%',
+  });
+
+  // Subtle fade-in animation
+  useEffect(() => {
+    if (!isInView || hasAnimated.current || prefersReducedMotion()) {
+      return;
+    }
+
+    const elements = [searchRef.current, categoriesRef.current, tagsRef.current].filter(Boolean);
+
+    // Fade in sections with subtle stagger
+    gsap.fromTo(
+      elements,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 0.5,
+        ease: 'power2.out',
+        stagger: 0.1,
+        onComplete: () => {
+          hasAnimated.current = true;
+        },
+      }
+    );
+  }, [isInView]);
 
   const handleSearchChange = (query: string) => {
     setSearchQuery(query);
@@ -41,7 +77,7 @@ export function FilterBar({
 
   const handleTagClick = (tag: string) => {
     const newTags = selectedTags.includes(tag)
-      ? selectedTags.filter(t => t !== tag)
+      ? selectedTags.filter((t) => t !== tag)
       : [...selectedTags, tag];
     setSelectedTags(newTags);
     onFilterChange?.({
@@ -65,10 +101,13 @@ export function FilterBar({
   const hasActiveFilters = searchQuery || selectedCategory || selectedTags.length > 0;
 
   return (
-    <div className={cn('space-y-6 mb-8', className)}>
+    <div ref={triggerRef} className={cn('space-y-6 mb-8', className)}>
       {/* Search Bar */}
-      <div className="relative">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/40" aria-hidden="true" />
+      <div ref={searchRef} className="relative">
+        <Search
+          className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/40"
+          aria-hidden="true"
+        />
         <input
           type="text"
           placeholder="Search experiments..."
@@ -90,10 +129,8 @@ export function FilterBar({
 
       {/* Category Filters */}
       {categories.length > 0 && (
-        <div>
-          <h3 className="text-sm font-bold uppercase text-foreground/60 mb-3">
-            Categories
-          </h3>
+        <div ref={categoriesRef}>
+          <h3 className="text-sm font-bold uppercase text-foreground/60 mb-3">Categories</h3>
           <div className="flex flex-wrap gap-2">
             {categories.map((category) => (
               <button
@@ -122,10 +159,8 @@ export function FilterBar({
 
       {/* Tag Filters */}
       {tags.length > 0 && (
-        <div>
-          <h3 className="text-sm font-bold uppercase text-foreground/60 mb-3">
-            Tags
-          </h3>
+        <div ref={tagsRef}>
+          <h3 className="text-sm font-bold uppercase text-foreground/60 mb-3">Tags</h3>
           <div className="flex flex-wrap gap-2">
             {tags.map((tag) => (
               <Badge

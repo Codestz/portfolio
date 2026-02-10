@@ -1,5 +1,5 @@
 import { ArrowRight, ExternalLink, Github } from 'lucide-react';
-import { Section } from '@/components/sections';
+import { AnimatedSection } from '@/components/sections';
 import { Card, Button, Badge } from '@/components/ui';
 import { contentService } from '@/lib/services';
 import { ROUTES } from '@/lib/constants';
@@ -12,7 +12,8 @@ import { Metadata } from 'next';
  */
 export const metadata: Metadata = generatePageMetadata({
   title: 'Experience',
-  description: 'Professional experience and impactful projects across AI integration, microservices, and full-stack development',
+  description:
+    'Professional experience and impactful projects across AI integration, microservices, and full-stack development',
   path: '/experience',
 });
 
@@ -22,38 +23,23 @@ export default async function ExperiencePage() {
 
   return (
     <main>
-      <Section
+      <AnimatedSection
         title="Experience"
         description="Professional experience and impactful projects across AI integration, microservices, and full-stack development"
       >
         {projects.length > 0 ? (
           <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
-              <Card
-                key={project.slug}
-                variant="elevated"
-                hoverable
-                as="article"
-              >
+              <Card key={project.slug} variant="elevated" hoverable as="article">
                 <Card.Header>
                   <div className="mb-2 flex flex-wrap gap-2">
-                    {project.current && (
-                      <Badge variant="success">
-                        Current
-                      </Badge>
-                    )}
-                    {project.featured && (
-                      <Badge variant="primary">
-                        Featured
-                      </Badge>
-                    )}
+                    {project.current && <Badge variant="success">Current</Badge>}
+                    {project.featured && <Badge variant="primary">Featured</Badge>}
                   </div>
                   <h2 className="mb-2 font-mono text-xl font-bold text-foreground">
                     {project.title}
                   </h2>
-                  <p className="mb-1 text-sm font-semibold text-primary">
-                    {project.company}
-                  </p>
+                  <p className="mb-1 text-sm font-semibold text-primary">{project.company}</p>
                   <p className="text-xs text-foreground/60">
                     {project.role} · {project.year}
                   </p>
@@ -118,7 +104,7 @@ export default async function ExperiencePage() {
             </p>
           </div>
         )}
-      </Section>
+      </AnimatedSection>
     </main>
   );
 }

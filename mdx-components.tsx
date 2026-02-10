@@ -1,5 +1,13 @@
 import type { MDXComponents } from 'mdx/types';
-import { CodeSnippet, Terminal, Icon, Comparison, FileTree } from '@/components/mdx';
+import {
+  CodeSnippet,
+  Terminal,
+  Icon,
+  Comparison,
+  FileTree,
+  TokenComparison,
+  ToolCall,
+} from '@/components/mdx';
 import { Mermaid } from '@/components/mdx/Mermaid';
 
 /**
@@ -16,6 +24,8 @@ export const mdxComponents: MDXComponents = {
   Icon,
   Comparison,
   FileTree,
+  TokenComparison,
+  ToolCall,
   // Headings
   h1: ({ children }) => (
     <h1 className="mb-4 sm:mb-6 mt-6 sm:mt-8 font-heading text-3xl sm:text-4xl font-bold uppercase text-foreground">

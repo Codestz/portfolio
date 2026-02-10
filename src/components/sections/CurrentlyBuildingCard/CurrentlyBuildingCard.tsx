@@ -3,16 +3,28 @@
 import { Badge } from '@/components/ui/primitives';
 import { Hammer } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import type { CurrentlyBuildingCardProps } from './CurrentlyBuildingCard.types';
+import type { CurrentWork } from '@/lib/types';
 
-export interface CurrentlyBuildingCardProps {
-  className?: string;
-}
+/**
+ * Fallback data if MDX file can't be loaded
+ */
+const DEFAULT_CURRENT_WORK: CurrentWork = {
+  title: 'Why `cat` in Bash is Bad for AI Agents',
+  description:
+    'Exploring why popular bash commands cause unexpected behavior in autonomous agents...',
+  stack: ['Bash', 'AI Agents', 'CLI'],
+  publishedAt: new Date().toISOString(),
+};
 
 /**
  * CurrentlyBuildingCard Component
  * Shows what's currently being worked on
+ * Data is loaded from src/content/current-work.mdx
  */
-export function CurrentlyBuildingCard({ className }: CurrentlyBuildingCardProps) {
+export function CurrentlyBuildingCard({ className, currentWork }: CurrentlyBuildingCardProps) {
+  // Use provided data or fallback to default
+  const work = currentWork || DEFAULT_CURRENT_WORK;
   return (
     <div
       className={cn(
@@ -33,25 +45,22 @@ export function CurrentlyBuildingCard({ className }: CurrentlyBuildingCardProps)
 
       {/* Project Title */}
       <h3 className="font-mono text-lg font-bold text-foreground uppercase mb-3 leading-tight">
-        Why `cat` in Bash is Bad for AI Agents
+        {work.title}
       </h3>
 
-      {/* Mysterious Description */}
-      <p className="text-sm text-foreground/70 mb-4">
-        Exploring why popular bash commands cause unexpected behavior in autonomous agents...
-      </p>
+      {/* Description */}
+      <p className="text-sm text-foreground/70 mb-4">{work.description}</p>
 
       {/* Tech Stack Pills */}
       <div className="flex flex-wrap gap-2">
-        <span className="px-2 py-1 text-xs font-bold bg-bg-elevated border-[2px] border-foreground font-mono uppercase text-foreground">
-          Bash
-        </span>
-        <span className="px-2 py-1 text-xs font-bold bg-bg-elevated border-[2px] border-foreground font-mono uppercase text-foreground">
-          AI Agents
-        </span>
-        <span className="px-2 py-1 text-xs font-bold bg-bg-elevated border-[2px] border-foreground font-mono uppercase text-foreground">
-          CLI
-        </span>
+        {work.stack.map((tech) => (
+          <span
+            key={tech}
+            className="px-2 py-1 text-xs font-bold bg-bg-elevated border-[2px] border-foreground font-mono uppercase text-foreground"
+          >
+            {tech}
+          </span>
+        ))}
       </div>
     </div>
   );

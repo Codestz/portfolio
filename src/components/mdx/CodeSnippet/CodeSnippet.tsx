@@ -5,13 +5,7 @@ import { Check, Copy } from 'lucide-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { cn } from '@/lib/utils';
-
-export interface CodeSnippetProps {
-  children: string;
-  language?: string;
-  title?: string;
-  showLineNumbers?: boolean;
-}
+import type { CodeSnippetProps } from './CodeSnippet.types';
 
 /**
  * CodeSnippet Component

@@ -10,6 +10,7 @@ import {
 } from '@/components/sections';
 import { contentService } from '@/lib/services';
 import { generatePageMetadata } from '@/lib/utils';
+import { getCurrentWork } from '@/lib/utils/current-work.utils';
 
 /**
  * Static metadata for the home page
@@ -23,6 +24,9 @@ export default async function HomePage() {
   // Fetch latest blog posts
   const postsResult = await contentService.getAllPosts();
   const posts = postsResult.success ? Array.from(postsResult.data) : [];
+
+  // Fetch current work data
+  const currentWork = await getCurrentWork();
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-6 sm:pt-8">
@@ -46,7 +50,7 @@ export default async function HomePage() {
 
         {/* Currently Building - 25% (1 of 4 columns) */}
         <div className="md:col-span-1 flex">
-          <CurrentlyBuildingCard className="w-full h-full" />
+          <CurrentlyBuildingCard currentWork={currentWork} className="w-full h-full" />
         </div>
       </AnimatedContentGrid>
 

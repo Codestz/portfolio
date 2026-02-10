@@ -1,4 +1,4 @@
-import { Section, ExperimentsGrid } from '@/components/sections';
+import { ExperimentsGrid, AnimatedSection } from '@/components/sections';
 import { contentService } from '@/lib/services';
 import { generatePageMetadata } from '@/lib/utils';
 import { Metadata } from 'next';
@@ -9,7 +9,8 @@ import { Metadata } from 'next';
  */
 export const metadata: Metadata = generatePageMetadata({
   title: 'Experiments',
-  description: 'Exploring AI integration, performance optimization, and software architecture through tutorials and experiments',
+  description:
+    'Exploring AI integration, performance optimization, and software architecture through tutorials and experiments',
   path: '/experiments',
 });
 
@@ -19,7 +20,7 @@ export default async function ExperimentsPage() {
 
   return (
     <main>
-      <Section
+      <AnimatedSection
         title="Experiments"
         description="Exploring AI integration, performance optimization, and software architecture through tutorials and experiments"
       >
@@ -27,12 +28,10 @@ export default async function ExperimentsPage() {
           <ExperimentsGrid posts={posts} />
         ) : (
           <div className="py-12 text-center">
-            <p className="mb-4 text-lg text-foreground/60">
-              No experiments yet. Check back soon!
-            </p>
+            <p className="mb-4 text-lg text-foreground/60">No experiments yet. Check back soon!</p>
           </div>
         )}
-      </Section>
+      </AnimatedSection>
     </main>
   );
 }

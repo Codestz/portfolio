@@ -10,3 +10,7 @@ export { Comparison } from './Comparison';
 export type { ComparisonProps } from './Comparison';
 export { FileTree } from './FileTree';
 export type { FileTreeProps, FileNode } from './FileTree';
+export { TokenComparison } from './TokenComparison';
+export type { TokenComparisonProps, TokenApproach, TokenStep } from './TokenComparison';
+export { ToolCall } from './ToolCall';
+export type { ToolCallProps, ToolCallResult } from './ToolCall';
