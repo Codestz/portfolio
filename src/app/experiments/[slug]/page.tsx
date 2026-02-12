@@ -126,7 +126,15 @@ export default async function ExperimentPage({ params }: BlogPostPageProps) {
 
             {/* Article Content */}
             <div className="mt-8">
-              <MDXRemote source={post.content} components={mdxComponents} />
+              <MDXRemote
+                source={post.content}
+                components={mdxComponents}
+                // Disable while i am the only one that can post.
+                options={{
+                  blockDangerousJS: false,
+                  blockJS: false,
+                }}
+              />
             </div>
           </article>
         </div>
